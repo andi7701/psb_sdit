@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -18,17 +19,11 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin SDB',
             'email' => 'admin@sdb.test',
+            'role' => 'Admin',
             'password' => bcrypt('secret123'),
         ]);
 
-        $admin->assignRole('admin');
-
-        $user = User::create([
-            'name' => 'User SDB',
-            'email' => 'user@sdb.test',
-            'password' => bcrypt('secret123'),
-        ]);
-
-        $user->assignRole('user');
+        $role = Role::create(['name' => 'Admin']);
+        $admin->assignRole('Admin');
     }
 }

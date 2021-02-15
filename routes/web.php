@@ -21,12 +21,13 @@ Auth::routes();
 
 
 Route::middleware('auth')->group(function(){
-    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::prefix('/backend')->middleware('role:admin')->group(function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+    Route::prefix('/backend')->middleware('role:Admin')->group(function(){
         Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.page');
     });
     
-    Route::prefix('/user')->middleware('role:user')->group(function(){
-        Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
+    Route::prefix('/user')->middleware('role:User')->group(function(){
+        // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
     });
 });

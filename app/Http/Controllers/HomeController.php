@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,11 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    public function index2()
-    {
-        return view('user');
+        if(Auth::check()){
+            if(Auth::user()->role == 'Admin'){
+                $users = User::select('id')->where('role','User')->get();
+                return view('backend.home', compact('users'));
+            }elseif(Auth::user()->role == 'User'){
+                $cek_user = User::select('id','name','foto')->where('id',auth::user()->id)->first();
+                return view('user.home', compact('cek_user'));
+            }
+        }else{
+            abort(404);
+        }
+        // return view('home');
     }
 }
