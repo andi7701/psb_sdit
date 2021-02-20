@@ -1,21 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.frontend.app')
+
+@section('title')
+    Dashboard - PPDB Sekolah Darma Bangsa
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                        Halaman User
-                    {{ __('You are logged in!') }}
-                </div>
+<div class="col-md-6 col-xl-12">
+    <div class="card">
+        <div class="card-content">
+            <img class="card-img-top img-fluid" src="assets/images/samples/origami.jpg"
+                alt="Card image cap" style="height: 20rem" />
+            <div class="card-body">
+                <h4 class="card-title">Alur Pendaftaran Sekolah Darma Bangsa</h4>
+                <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis accusantium sapiente saepe repellat, et consequatur dolor, molestiae excepturi eaque dicta ea at sit nobis voluptas? Libero animi nulla tempora magnam.
+                </p>
             </div>
         </div>
     </div>
