@@ -18,10 +18,8 @@ class CreateDataPendukungsTable extends Migration
             $table->integer('tinggi_badan');
             $table->integer('berat_badan');
             $table->integer('jarak_rumah');
-            $table->integer('jarak_rumah2');
             $table->integer('waktu_tempuh');
-            $table->integer('waktu_tempuh2');
-            $table->integer('jumlah_saudara');
+            $table->integer('jumlah_saudara')->nullable();
             $table->string('jenis_prestasi')->nullable();
             $table->string('tingkat')->nullable();
             $table->string('nama_prestasi')->nullable();

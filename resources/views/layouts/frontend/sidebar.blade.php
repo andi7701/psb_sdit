@@ -15,8 +15,8 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item  active">
-                    <a href="index.html" class='sidebar-link'>
+                <li class="sidebar-item {{ (request()->is('home')) ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -28,35 +28,35 @@
                         <span>Biodata</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="component-alert.html">Data Siswa</a>
+                        <li class="submenu-item  {{ (request()->is('user/datasiswa')) ? 'active' : '' }}">
+                            <a href="{{ route('datasiswa') }}">Data Siswa</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="component-alert.html">Data Orang Tua</a>
+                        <li class="submenu-item  {{ (request()->is('user/dataortu')) ? 'active' : '' }}">
+                            <a href="{{ route('dataortu') }}">Data Orang Tua</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="component-alert.html">Data Pendukung</a>
+                        <li class="submenu-item {{ (request()->is('user/datapendukung')) ? 'active' : '' }}">
+                            <a href="{{ route('datapendukung') }}">Data Pendukung</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="sidebar-item ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                <li class="sidebar-item {{ (request()->is('user/uploadfile')) ? 'active' : '' }}">
+                    <a href="{{ route('upload') }}" class='sidebar-link'>
+                        <i class="bi bi-cloud-upload"></i>
                         <span>Upload File</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                <li class="sidebar-item  {{ (request()->is('user/pengumuman')) ? 'active' : '' }} ">
+                    <a href="{{ route('pengumuman') }}" class='sidebar-link'>
+                        <i class="bi bi-calendar-date"></i>
                         <span>Pengumuman</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                <li class="sidebar-item {{ (request()->is('user/kontakkami')) ? 'active' : '' }}">
+                    <a href="{{ route('contact') }}" class='sidebar-link'>
+                        <i class="bi bi-telephone-forward-fill"></i>
                         <span>Kontak Kami</span>
                     </a>
                 </li>

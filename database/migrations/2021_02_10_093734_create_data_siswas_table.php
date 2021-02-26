@@ -15,33 +15,23 @@ class CreateDataSiswasTable extends Migration
     {
         Schema::create('data_siswas', function (Blueprint $table) {
             $table->id();
+            $table->string('status_member');
             $table->string('jenjang');
             $table->string('jenis_kelamin');
-            $table->bigInteger('nisn')->unique();
-            $table->bigInteger('nis');
+            $table->bigInteger('nisn')->unique()->nullable(); //untuk TK Bagaimana?
+            $table->bigInteger('nis')->nullable();
             $table->bigInteger('nik');
-            $table->bigInteger('npsn')->unique();
-            $table->string('nama_sekolah');
-            $table->dateTime('ttl');
+            $table->bigInteger('npsn')->unique()->nullable();
+            $table->string('asal_sekolah')->nullable();
+            $table->string('tempat_lahir');
+            $table->date('ttl'); 
             $table->string('agama');
             $table->string('berkhusus');
             $table->text('alamat');
-            $table->string('provinsi');
-            $table->string('kabupaten');
-            $table->string('kecamatan');
             $table->string('alat_transport');
             $table->string('tempat_tinggal');
-            $table->string('hp');
-            $table->string('email_siswa')->unique();
-            $table->string('nomor_kks')->nullable();
-            $table->string('penerima')->nullable();
-            $table->bigInteger('no_kpps')->nullable();
-            $table->string('usulan_pip')->nullable();
-            $table->string('alasan_layak')->nullable();
-            $table->string('penerima_kip')->nullable();
-            $table->integer('nomor_kip')->nullable();
-            $table->string('nama_kip')->nullable();
-            $table->string('alasan_kip')->nullable();
+            $table->string('hp')->nullable();
+            $table->string('email_siswa')->unique()->nullable();
             $table->string('no_akta');
             $table->timestamps();
         });

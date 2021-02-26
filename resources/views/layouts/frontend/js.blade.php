@@ -5,3 +5,5 @@
 <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 
 <script src="{{ asset('assets/js/main.js') }}"></script>
+
+@yield('js')
