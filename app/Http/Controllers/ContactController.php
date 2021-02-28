@@ -10,6 +10,7 @@ class ContactController extends Controller
     //
     public function contact()
     {
-        return view('user.contact');
+        $contact = Contact::findOrFail(1);
+        return view('user.contact', compact('contact'));
     }
 }

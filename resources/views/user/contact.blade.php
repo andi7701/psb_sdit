@@ -16,7 +16,7 @@
             </div>
             <div class="name ms-4">
                 <h5 class="mb-1">Email</h5>
-                <h6 class="text-muted mb-0">@johnducky</h6>
+                <h6 class="text-muted mb-0">{{ $contact->email }}</h6>
             </div>
         </div>
         <div class="recent-message d-flex px-4 py-3">
@@ -25,7 +25,7 @@
             </div>
             <div class="name ms-4">
                 <h5 class="mb-1">No. Telephone</h5>
-                <h6 class="text-muted mb-0">@imdean</h6>
+                <h6 class="text-muted mb-0">{{ $contact->phone }}</h6>
             </div>
         </div>
         <div class="recent-message d-flex px-4 py-3">
@@ -34,7 +34,7 @@
             </div>
             <div class="name ms-4">
                 <h5 class="mb-1">Whatsapp</h5>
-                <h6 class="text-muted mb-0">@dodoljohn</h6>
+                <h6 class="text-muted mb-0">{{ $contact->phone2 }}</h6>
             </div>
         </div>
     </div>
