@@ -15,8 +15,14 @@ class CreatePengumumenTable extends Migration
     {
         Schema::create('pengumumen', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->text('description');
+            $table->string('username')->nullable()->unique();
+            $table->string('password')->nullable();
+            $table->string('token')->nullable();
+            $table->string('url')->nullable();
+            $table->integer('soal_benar')->nullable();
+            $table->integer('soal_salah')->nullable();
+            $table->integer('nilai')->nullable();
+            $table->string('hasil')->nullable();
             $table->timestamps();
         });
     }

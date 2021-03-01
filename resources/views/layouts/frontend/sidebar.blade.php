@@ -48,7 +48,7 @@
                 </li>
 
                 <li class="sidebar-item  {{ (request()->is('user/pengumuman')) ? 'active' : '' }} ">
-                    <a href="{{ route('pengumuman') }}" class='sidebar-link'>
+                    <a href="{{ route('showpengumuman') }}" class='sidebar-link'>
                         <i class="bi bi-calendar-date"></i>
                         <span>Pengumuman</span>
                     </a>

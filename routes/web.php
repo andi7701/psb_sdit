@@ -31,7 +31,9 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::prefix('/user')->middleware('role:User')->group(function(){
         // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
         Route::get('kontakkami',[App\Http\Controllers\ContactController::class, 'contact'])->name('contact');
-        Route::get('pengumuman', function(){return view('user.pengumuman');})->name('pengumuman');
+        Route::get('pengumuman',[App\Http\Controllers\PengumumanController::class, 'show'])->name('showpengumuman');
+
+
         Route::get('uploadfile', function(){return view('user.upload');})->name('upload');
         Route::get('datasiswa', function(){return view('user.datasiswa');})->name('datasiswa');
         Route::get('dataortu', function(){return view('user.dataortu');})->name('dataortu');
