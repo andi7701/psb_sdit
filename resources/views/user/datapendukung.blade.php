@@ -144,7 +144,7 @@
                                     <label for="namaprestasi">Nama Prestasi</label>
                                     <div class="position-relative">
                                         <input type="text" name="nama_prestasi" class="form-control"
-                                            placeholder="Satuan Km"
+                                            placeholder=""
                                             id="namaprestasi" autocomplete="none">
                                         <div class="form-control-icon">
                                             <i class="bi bi-person"></i>

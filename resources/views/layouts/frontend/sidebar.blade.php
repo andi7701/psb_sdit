@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="sidebar-item {{ (request()->is('user/uploadfile')) ? 'active' : '' }}">
-                    <a href="{{ route('upload') }}" class='sidebar-link'>
+                    <a href="{{ route('uploadfile') }}" class='sidebar-link'>
                         <i class="bi bi-cloud-upload"></i>
                         <span>Upload File</span>
                     </a>

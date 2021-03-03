@@ -33,8 +33,13 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::get('kontakkami',[App\Http\Controllers\ContactController::class, 'contact'])->name('contact');
         Route::get('pengumuman',[App\Http\Controllers\PengumumanController::class, 'show'])->name('showpengumuman');
 
+        // File Pendukung
+        Route::get('uploadfile', [App\Http\Controllers\FilePendukungController::class, 'upload'])->name('uploadfile');
+        Route::post('storefile',[App\Http\Controllers\FilePendukungController::class, 'store'])->name('storefile');
+        Route::put('uploadfile/{id}', [App\Http\Controllers\FilePendukungController::class, 'uploadupdate'])->name('uploadfileupdate');
 
-        Route::get('uploadfile', function(){return view('user.upload');})->name('upload');
+
+
         Route::get('datasiswa', function(){return view('user.datasiswa');})->name('datasiswa');
         Route::get('dataortu', function(){return view('user.dataortu');})->name('dataortu');
         Route::get('datapendukung', function(){return view('user.datapendukung');})->name('datapendukung');

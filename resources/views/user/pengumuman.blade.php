@@ -44,7 +44,7 @@
                                 <li>Username : {{ $pengumuman->username }}</li>
                                 <li>Password : {{ $pengumuman->password }}</li>
                                 <li>Token : {{ $pengumuman->token }}</li>
-                                <li>Alamat Test : <a target="_blank" href="{{ url('http://darmabangsa.sch.id') }}">{{ $pengumuman->url }}</a></li>
+                                <li>Alamat Test : <a target="_blank" href="{{ url('http://'. $pengumuman->url . ":8072") }}">{{ $pengumuman->url }}</a></li>
                             </ul>
                         </div>
                     </div>
