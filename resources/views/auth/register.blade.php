@@ -16,7 +16,7 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input id="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+                        <input id="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Lengkap Calon Siswa">
                         @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
         </div>
         <div class="col-lg-7 d-none d-lg-block">
             <div id="auth-right">
-
+                <img src="{{ asset('assets/images/bg/SDB.jpg') }}"  width="100%" height="100%" alt="">
             </div>
         </div>
     </div>

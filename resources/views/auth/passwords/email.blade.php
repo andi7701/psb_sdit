@@ -43,7 +43,7 @@
         </div>
         <div class="col-lg-7 d-none d-lg-block">
             <div id="auth-right">
-
+                <img src="{{ asset('assets/images/bg/SDB.jpg') }}"  width="100%" height="100%" alt="">
             </div>
         </div>
     </div>
