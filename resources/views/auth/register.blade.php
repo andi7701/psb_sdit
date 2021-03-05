@@ -16,7 +16,7 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input id="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Lengkap Calon Siswa">
+                        <input id="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Calon Siswa">
                         @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

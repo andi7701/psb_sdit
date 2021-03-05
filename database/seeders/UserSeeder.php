@@ -34,6 +34,7 @@ class UserSeeder extends Seeder
             'role' => 'User',
             'password' => bcrypt('secret123'),
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'tahun_ajarans' => Carbon::now()->year,
         ]);
 
         $user->assignRole('User');
