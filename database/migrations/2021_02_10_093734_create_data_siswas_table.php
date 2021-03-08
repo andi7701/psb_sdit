@@ -18,10 +18,9 @@ class CreateDataSiswasTable extends Migration
             $table->string('status_member');
             $table->string('jenjang');
             $table->string('jenis_kelamin');
-            $table->bigInteger('nisn')->unique()->nullable(); //untuk TK Bagaimana?
+            $table->bigInteger('nisn')->nullable(); //untuk TK Bagaimana?
             $table->bigInteger('nis')->nullable();
-            $table->bigInteger('nik');
-            $table->bigInteger('npsn')->unique()->nullable();
+            $table->bigInteger('npsn')->nullable();
             $table->string('asal_sekolah')->nullable();
             $table->string('tempat_lahir');
             $table->date('ttl'); 

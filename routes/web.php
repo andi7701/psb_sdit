@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengumumanController;
@@ -42,9 +43,11 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::post('storefile',[FilePendukungController::class, 'store'])->name('storefile');
         Route::put('uploadfile/{id}', [FilePendukungController::class, 'uploadupdate'])->name('uploadfileupdate');
 
+        // Data Siswa
+        Route::get('datasiswa',  [DataSiswaController::class,'show'])->name('datasiswa');
+        Route::post('storesiswa', [DataSiswaController::class, 'store'])->name('storesiswa');
+        Route::put('datasiswa/{id}',[DataSiswaController::class,'update'])->name('updatesiswa');
 
-
-        Route::get('datasiswa', function(){return view('user.datasiswa');})->name('datasiswa');
         Route::get('dataortu', function(){return view('user.dataortu');})->name('dataortu');
         Route::get('datapendukung', function(){return view('user.datapendukung');})->name('datapendukung');
     });

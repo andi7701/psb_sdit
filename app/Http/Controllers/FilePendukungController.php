@@ -15,7 +15,6 @@ class FilePendukungController extends Controller
     public function upload()
     {
         $filependukung = FilePendukung::select('*')->where('users_id', Auth::user()->id)->first();
-        // dd($filependukung);
         return view('user.upload', compact('filependukung'));
     }
 
