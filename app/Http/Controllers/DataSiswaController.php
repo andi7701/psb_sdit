@@ -22,10 +22,10 @@ class DataSiswaController extends Controller
             'status_member' => 'required|string',
             'jenjang' => 'required|string',
             'jenis_kelamin' => 'required|string',
-            'nisn' => 'numeric',
-            'nis' => 'numeric',
-            'npsn' => 'numeric',
-            'asal_sekolah' => 'string',
+            'nisn' => 'numeric|nullable',
+            'nis' => 'numeric|nullable',
+            'npsn' => 'numeric|nullable',
+            'asal_sekolah' => 'string|nullable',
             'tempat_lahir' => 'required|string',
             'ttl' => 'required|date',
             'agama' => 'required|string',
@@ -33,8 +33,8 @@ class DataSiswaController extends Controller
             'alamat' => 'required|string',
             'alat_transport' => 'required|string',
             'tempat_tinggal' => 'required|string',
-            'hp' => 'numeric',
-            'email_siswa' => 'email',
+            'hp' => 'numeric|nullable',
+            'email_siswa' => 'email|nullable',
             'no_akta' => 'required|string'
         ]);
         
@@ -70,10 +70,10 @@ class DataSiswaController extends Controller
             'status_member' => 'required|string',
             'jenjang' => 'required|string',
             'jenis_kelamin' => 'required|string',
-            'nisn' => 'numeric',
-            'nis' => 'numeric',
-            'npsn' => 'numeric',
-            'asal_sekolah' => 'string',
+            'nisn' => 'numeric|nullable',
+            'nis' => 'numeric|nullable',
+            'npsn' => 'numeric|nullable',
+            'asal_sekolah' => 'string|nullable',
             'tempat_lahir' => 'required|string',
             'ttl' => 'required|date',
             'agama' => 'required|string',
@@ -81,8 +81,8 @@ class DataSiswaController extends Controller
             'alamat' => 'required|string',
             'alat_transport' => 'required|string',
             'tempat_tinggal' => 'required|string',
-            'hp' => 'numeric',
-            'email_siswa' => 'email',
+            'hp' => 'numeric|nullable',
+            'email_siswa' => 'email|nullable',
             'no_akta' => 'required|string'
         ]);
 
