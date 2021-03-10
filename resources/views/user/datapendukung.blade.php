@@ -26,6 +26,18 @@
 @endsection
 
 @section('content')
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-dismissible show fade">
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>{{ $message }}</strong>
+</div>
+@elseif($message = Session::get('error'))
+<div class="alert alert-danger alert-dismissible show fade">
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>{{ $message }}</strong>
+</div>
+@endif
+
 <div class="col-12">
     <div class="card">
         <div class="card-content">
@@ -184,7 +196,10 @@
                                 </div>
                             </div>
                         
-                            <button type="submit" class="btn btn-success">Simpan</button>
+                            <button type="submit" class="btn btn-success mb-2">Simpan</button>
+                            <a href="{{ route('dataortu') }}" class="btn btn-primary col-md-4 offset-md-2 px-2">Kembali</a>
+                        
+                            <a href="" class="btn btn-warning col-md-4 ml-2">Cetak</a>
                         </form>
                         </div>
                     </div>

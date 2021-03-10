@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DataOrtuController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
@@ -48,7 +49,11 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::post('storesiswa', [DataSiswaController::class, 'store'])->name('storesiswa');
         Route::put('datasiswa/{id}',[DataSiswaController::class,'update'])->name('updatesiswa');
 
-        Route::get('dataortu', function(){return view('user.dataortu');})->name('dataortu');
+        // Data Orang Tua
+        Route::get('dataortu', [DataOrtuController::class,'show'])->name('dataortu');
+        Route::post('storeortu', [DataOrtuController::class,'store'])->name('storeortu');
+        Route::put('dataortu/{id}', [DataOrtuController::class,'update'])->name('updateortu');
+
         Route::get('datapendukung', function(){return view('user.datapendukung');})->name('datapendukung');
     });
 });

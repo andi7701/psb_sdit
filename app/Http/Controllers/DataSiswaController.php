@@ -87,7 +87,29 @@ class DataSiswaController extends Controller
         ]);
 
         $datasiswa = DataSiswa::findOrFail($id);
+        
+        $datasiswa->status_member = $request->status_member;
+        $datasiswa->jenjang = $request->jenjang;
+        $datasiswa->jenis_kelamin = $request->jenis_kelamin;
+        $datasiswa->nisn = $request->nisn;
+        $datasiswa->nis = $request->nis;
+        $datasiswa->npsn = $request->npsn;
+        $datasiswa->asal_sekolah = $request->asal_sekolah;
+        $datasiswa->tempat_lahir = $request->tempat_lahir;
+        $datasiswa->ttl = $request->ttl;
+        $datasiswa->agama = $request->agama;
+        $datasiswa->berkhusus = $request->berkhusus;
+        $datasiswa->alamat = $request->alamat;
+        $datasiswa->alat_transport = $request->alat_transport;
+        $datasiswa->tempat_tinggal = $request->tempat_tinggal;
+        $datasiswa->hp = $request->hp;
+        $datasiswa->email_siswa = $request->email_siswa;
+        $datasiswa->no_akta = $request->no_akta;
+        $datasiswa->users_id = Auth::user()->id;
+        $datasiswa->save();
 
+        Session::flash('success','Data Siswa Berhasil Terupdate');
+        return redirect()->route('dataortu');
         
     }
 }
