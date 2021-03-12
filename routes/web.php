@@ -65,8 +65,10 @@ Route::middleware(['auth','verified'])->group(function(){
         // My Profile
         Route::get('myprofile', [ProfileUserController::class,'show'])->name('myprofile');
         Route::put('myprofile/{id}', [ProfileUserController::class,'update'])->name('updateprofile');
+        Route::get('resetpassword', [ProfileUserController::class,'resetpass'])->name('resetpassword');
+        Route::put('resetpassword/{id}',[ProfileUserController::class,'updatepass'])->name('updatepassword');
 
-        // Reset Password
-        Route::get('resetpassword', function(){return view('user.resetpassword');})->name('resetpassword');
+        // // Reset Password
+        // Route::get('resetpassword', function(){return view('user.resetpassword');})->name('resetpassword');
     });
 });

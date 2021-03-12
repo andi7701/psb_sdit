@@ -45,4 +45,38 @@ class ProfileUserController extends Controller
         Session::flash('success', 'Profile Berhasil Terupdate');
         return redirect()->back();
     }
+
+    public function resetpass()
+    {
+        $user = Auth::user();
+        return view('user.resetpassword', compact('user'));
+    }
+
+    public function updatepass(Request $request)
+    {
+        $request->validate([
+            'oldpassword' => 'required',
+            'password' => 'required|min:6|max:255|alpha_num',
+            'password_confirmation' => 'required_with:password|same:password|min:6|max:255|alpha_num',
+        ]);
+        $hashedPassword = Auth::user()->password;
+
+        if(\Hash::check($request->oldpassword, $hashedPassword)){
+            if(!\Hash::check($request->password, $hashedPassword)) {
+                $users = User::find(Auth::user()->id);
+                $users->password = bcrypt($request->password);
+                User::where('id', Auth::user()->id)->update(array('password' => $users->password));
+
+                Session::flash('success','Password Sukses Terupdate');
+                return redirect()->back();
+            }
+            else{
+                Session::flash('error','Password Baru Tidak Boleh Sama dengan Password Lama');
+                return redirect()->back();
+            }
+        }else{
+            Session::flash('error','Password Lama Tidak Sama');
+            return redirect()->back();
+        }
+    }
 }
