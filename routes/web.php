@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DataOrtuController;
+use App\Http\Controllers\DataPendukungController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\ProfileUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +38,7 @@ Route::middleware(['auth','verified'])->group(function(){
     
     Route::prefix('/user')->middleware('role:User')->group(function(){
         // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
+
         Route::get('kontakkami',[ContactController::class, 'contact'])->name('contact');
         Route::get('pengumuman',[PengumumanController::class, 'show'])->name('showpengumuman');
 
@@ -54,6 +57,16 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::post('storeortu', [DataOrtuController::class,'store'])->name('storeortu');
         Route::put('dataortu/{id}', [DataOrtuController::class,'update'])->name('updateortu');
 
-        Route::get('datapendukung', function(){return view('user.datapendukung');})->name('datapendukung');
+        // Data Pendukung
+        Route::get('datapendukung', [DataPendukungController::class,'show'])->name('datapendukung');
+        Route::post('storependukung', [DataPendukungController::class,'store'])->name('storependukung');
+        Route::put('datapendukung/{id}', [DataPendukungController::class,'update'])->name('updatependukung');
+
+        // My Profile
+        Route::get('myprofile', [ProfileUserController::class,'show'])->name('myprofile');
+        Route::put('myprofile/{id}', [ProfileUserController::class,'update'])->name('updateprofile');
+
+        // Reset Password
+        Route::get('resetpassword', function(){return view('user.resetpassword');})->name('resetpassword');
     });
 });
