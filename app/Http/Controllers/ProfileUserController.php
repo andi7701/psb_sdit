@@ -20,7 +20,7 @@ class ProfileUserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'foto' => 'max:2048|mimes:png,jpg,jpeg',
+            'foto' => 'size:1048|mimes:png,jpg,jpeg',
             'name' => 'required|string|min:3'
         ]);
 

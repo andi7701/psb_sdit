@@ -59,7 +59,7 @@
                             <div class="col-md-8 form-group">
                                 <input type="file" id="foto" class="form-control @error('foto') is-invalid @enderror"
                                     name="foto">
-                                    <span class="badge bg-danger">Max File : 2 MB</span>
+                                    <span class="badge bg-danger">Max File : 1 MB</span>
                                     @error('foto')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
