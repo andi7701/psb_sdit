@@ -39,38 +39,43 @@ Route::middleware(['auth','verified'])->group(function(){
     
     Route::prefix('/user')->middleware('role:User')->group(function(){
         // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
-        Route::get('kontakkami',[ContactController::class, 'contact'])->name('contact');
-        Route::get('pengumuman',[PengumumanController::class, 'show'])->name('showpengumuman');
+        Route::middleware(['Payment'])->group(function() {
+            Route::get('pengumuman',[PengumumanController::class, 'show'])->name('showpengumuman');
 
-        // File Pendukung
-        Route::get('uploadfile', [FilePendukungController::class, 'upload'])->name('uploadfile');
-        Route::post('storefile',[FilePendukungController::class, 'store'])->name('storefile');
-        Route::put('uploadfile/{id}', [FilePendukungController::class, 'uploadupdate'])->name('uploadfileupdate');
-
-        // Data Siswa
-        Route::get('datasiswa',  [DataSiswaController::class,'show'])->name('datasiswa');
-        Route::post('storesiswa', [DataSiswaController::class, 'store'])->name('storesiswa');
-        Route::put('datasiswa/{id}',[DataSiswaController::class,'update'])->name('updatesiswa');
-
-        // Data Orang Tua
-        Route::get('dataortu', [DataOrtuController::class,'show'])->name('dataortu');
-        Route::post('storeortu', [DataOrtuController::class,'store'])->name('storeortu');
-        Route::put('dataortu/{id}', [DataOrtuController::class,'update'])->name('updateortu');
-
-        // Data Pendukung
-        Route::get('datapendukung', [DataPendukungController::class,'show'])->name('datapendukung');
-        Route::post('storependukung', [DataPendukungController::class,'store'])->name('storependukung');
-        Route::put('datapendukung/{id}', [DataPendukungController::class,'update'])->name('updatependukung');
-
-        // My Profile
-        Route::get('myprofile', [ProfileUserController::class,'show'])->name('myprofile');
-        Route::put('myprofile/{id}', [ProfileUserController::class,'update'])->name('updateprofile');
-        Route::get('resetpassword', [ProfileUserController::class,'resetpass'])->name('resetpassword');
-        Route::put('resetpassword/{id}',[ProfileUserController::class,'updatepass'])->name('updatepassword');
+            // File Pendukung
+            Route::get('uploadfile', [FilePendukungController::class, 'upload'])->name('uploadfile');
+            Route::post('storefile',[FilePendukungController::class, 'store'])->name('storefile');
+            Route::put('uploadfile/{id}', [FilePendukungController::class, 'uploadupdate'])->name('uploadfileupdate');
+    
+            // Data Siswa
+            Route::get('datasiswa',  [DataSiswaController::class,'show'])->name('datasiswa');
+            Route::post('storesiswa', [DataSiswaController::class, 'store'])->name('storesiswa');
+            Route::put('datasiswa/{id}',[DataSiswaController::class,'update'])->name('updatesiswa');
+    
+            // Data Orang Tua
+            Route::get('dataortu', [DataOrtuController::class,'show'])->name('dataortu');
+            Route::post('storeortu', [DataOrtuController::class,'store'])->name('storeortu');
+            Route::put('dataortu/{id}', [DataOrtuController::class,'update'])->name('updateortu');
+    
+            // Data Pendukung
+            Route::get('datapendukung', [DataPendukungController::class,'show'])->name('datapendukung');
+            Route::post('storependukung', [DataPendukungController::class,'store'])->name('storependukung');
+            Route::put('datapendukung/{id}', [DataPendukungController::class,'update'])->name('updatependukung');
+    
+            // My Profile
+            Route::get('myprofile', [ProfileUserController::class,'show'])->name('myprofile');
+            Route::put('myprofile/{id}', [ProfileUserController::class,'update'])->name('updateprofile');
+            Route::get('resetpassword', [ProfileUserController::class,'resetpass'])->name('resetpassword');
+            Route::put('resetpassword/{id}',[ProfileUserController::class,'updatepass'])->name('updatepassword');
+        });
 
         // Payment
-        Route::get('payment', [PaymentController::class,'show'])->name('payment');
-        Route::post('storepayment',[PaymentController::class,'store'])->name('storepayment');
-        Route::put('payment/{id}',[PaymentController::class,'update'])->name('updatepayment');
+        Route::middleware(['Register'])->group(function() {
+            Route::get('payment', [PaymentController::class,'show'])->name('payment');
+            Route::post('storepayment',[PaymentController::class,'store'])->name('storepayment');
+            Route::put('payment/{id}',[PaymentController::class,'update'])->name('updatepayment');
+        });
+
+        Route::get('kontakkami',[ContactController::class, 'contact'])->name('contact');
     });
 });

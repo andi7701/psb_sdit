@@ -56,6 +56,16 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        @if (Auth::user()->status === 'Register')
+                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"><i
+                            class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                        @else    
                         <li><a class="dropdown-item" href="{{ route('myprofile') }}"><i class="icon-mid bi bi-person me-2"></i> My
                                 Profile</a></li>
                         <li><a class="dropdown-item" href="{{ route('resetpassword') }}"><i class="icon-mid bi bi-gear me-2"></i>
@@ -71,6 +81,7 @@
                                         @csrf
                                     </form>
                                 </li>
+                        @endif
                     </ul>
                 </div>
             </div>
