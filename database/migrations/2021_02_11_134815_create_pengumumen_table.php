@@ -15,6 +15,7 @@ class CreatePengumumenTable extends Migration
     {
         Schema::create('pengumumen', function (Blueprint $table) {
             $table->id();
+            $table->date('tgl_ujian')->nullable();
             $table->string('username')->nullable()->unique();
             $table->string('password')->nullable();
             $table->string('token')->nullable();

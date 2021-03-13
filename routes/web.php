@@ -6,6 +6,7 @@ use App\Http\Controllers\DataPendukungController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfileUserController;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,6 @@ Route::middleware(['auth','verified'])->group(function(){
     
     Route::prefix('/user')->middleware('role:User')->group(function(){
         // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
-
         Route::get('kontakkami',[ContactController::class, 'contact'])->name('contact');
         Route::get('pengumuman',[PengumumanController::class, 'show'])->name('showpengumuman');
 
@@ -68,7 +68,9 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::get('resetpassword', [ProfileUserController::class,'resetpass'])->name('resetpassword');
         Route::put('resetpassword/{id}',[ProfileUserController::class,'updatepass'])->name('updatepassword');
 
-        // // Reset Password
-        // Route::get('resetpassword', function(){return view('user.resetpassword');})->name('resetpassword');
+        // Payment
+        Route::get('payment', [PaymentController::class,'show'])->name('payment');
+        Route::post('storepayment',[PaymentController::class,'store'])->name('storepayment');
+        Route::put('payment/{id}',[PaymentController::class,'update'])->name('updatepayment');
     });
 });

@@ -41,6 +41,7 @@
                         aria-labelledby="headingFour" data-parent="#cardAccordion">
                         <div class="card-body">
                             <ul>
+                                <li>Tanggal Ujian : {{Carbon\Carbon::parse($pengumuman->tgl_ujian)->locale('id')->isoFormat('LL')}}</li>
                                 <li>Username : {{ $pengumuman->username }}</li>
                                 <li>Password : {{ $pengumuman->password }}</li>
                                 <li>Token : {{ $pengumuman->token }}</li>
@@ -82,6 +83,7 @@
                         aria-labelledby="headingFour" data-parent="#cardAccordion">
                         <div class="card-body">
                             <ul>
+                                <li>Tanggal Ujian : -</li>
                                 <li>Username : -</li>
                                 <li>Password : -</li>
                                 <li>Token : -</li>
