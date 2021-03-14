@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'role' => 'User',
             'password' => Hash::make($data['password']),
             'tahun_ajarans' => Carbon::now()->year,
+            'status' => 'Register'
         ]);
 
         $user->assignRole('User');
