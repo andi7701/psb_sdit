@@ -16,9 +16,9 @@ class ContactSeeder extends Seeder
     {
         //
         Contact::create([
-            'email' => 'pr@darmabangsa.sch.id',
-            'phone' => '0721-700931',
-            'phone2' => '0852-6637-3559'
+            'email' => 'test@gmail.com',
+            'phone' => '072180097',
+            'phone2' => '085276654332'
         ]);
     }
 }

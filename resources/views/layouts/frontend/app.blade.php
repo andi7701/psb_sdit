@@ -10,7 +10,13 @@
                <div class="page-heading">
                    <div class="page-title">
                        @yield('breadcrumb')
-                    </div>
+                       @if (Auth::user()->status == 'Payment' && Auth::user()->foto == NULL)
+                            <div class="alert alert-success alert-dismissible show fade">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <strong>Update Foto Profile, Gunakan Foto Formal Ukuran 3x4 Background (Merah/Biru).  <a href="{{ route('myprofile') }}">Click Here</a></strong>
+                                </div>
+                            </div>
+                       @endif
                 <section class="section">
                     @yield('content')
                 </section>

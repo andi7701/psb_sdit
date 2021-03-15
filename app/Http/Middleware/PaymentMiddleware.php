@@ -17,9 +17,12 @@ class PaymentMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->status != 'Payment' || Auth::user()->status != 'RePayment' )
+        if(Auth::user()->status != 'Payment' )
         {
-            return abort(404);
+            if(Auth::user()->status != 'RePayment')
+            {
+                return abort(404);
+            }
         }
         return $next($request);
     }

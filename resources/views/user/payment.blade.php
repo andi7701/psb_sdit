@@ -85,7 +85,7 @@
          <div class="col-md-10 offset-1">
             <div class="mb-3">
                @if ($payment->payment != NULL)
-                   Bukti Transfer Sudah di Upload
+                   Bukti Transfer Sudah di Kirim
                @endif
                 <input name="payment" class="form-control @error('payment') is-invalid @enderror" type="file" id="payment">
                 <span class="badge bg-primary">Max:2 MB. Format : JPG,JPEG, PDF</span>

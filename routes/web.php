@@ -34,11 +34,12 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     
     Route::prefix('/backend')->middleware('role:Admin')->group(function(){
-        // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.page');
+        Route::get('showcontact',[ContactController::class, 'showadmin'])->name('showcontact');
+        Route::put('updatecontact/{id}',[ContactController::class, 'update'])->name('updatecontact');
     });
     
     Route::prefix('/user')->middleware('role:User')->group(function(){
-        // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('user.page');
+
         Route::middleware(['Payment'])->group(function() {
             Route::get('pengumuman',[PengumumanController::class, 'show'])->name('showpengumuman');
 
@@ -76,6 +77,6 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::put('payment/{id}',[PaymentController::class,'update'])->name('updatepayment');
         });
 
-        Route::get('kontakkami',[ContactController::class, 'contact'])->name('contact');
+        Route::get('kontakkami',[ContactController::class, 'show'])->name('contact');
     });
 });
