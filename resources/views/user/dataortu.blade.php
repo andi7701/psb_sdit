@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
             <h3>Data Orang Tua</h3>
-            <p class="text-subtitle text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p class="text-subtitle text-muted">Berikut ini formulir untuk data orang tua</p>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-first">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -36,6 +36,13 @@
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   <strong>{{ $message }}</strong>
 </div>
+@endif
+
+@if ($datasiswa == NULL)
+    <div class="alert alert-danger alert-dismissible show fade">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>Mohon Lengkapi Data Siswa. <a href="{{ route('datasiswa') }}">Klik Disini</a></strong>
+    </div>
 @endif
 
 <div class="col-12">
@@ -407,9 +414,12 @@
                         </div>
                     </div>
                     
-                            <a href="{{ route('datasiswa') }}" class="btn btn-primary col-md-4 offset-md-2">Kembali</a>
-                        
-                            <button type="submit" class="btn btn-success col-md-4 ml-2">Selanjutnya</button>
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <a href="{{ route('datasiswa') }}"
+                                    class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                                    <button type="submit"
+                                    class="btn btn-light-secondary me-1 mb-1">Selanjutnya <i class="bi bi-arrow-right-square"></i></button>
+                            </div>
                 </form>
                 @else
                 <form action="{{ route('storeortu') }}" method="POST" class="form form-vertical">
@@ -737,6 +747,8 @@
                                         </span>
                                     @enderror
                             </div>
+                            <p><small class="badge bg-danger"><b>Jika Tidak Ada Dapat Di kosongkan</b></small>
+                            </p>
                         </div>
                     </div>
 
@@ -775,9 +787,10 @@
                         </div>
                     </div>
                     
-                            <a href="{{ route('datasiswa') }}" class="btn btn-primary col-md-4 offset-md-2">Kembali</a>
-                        
-                            <button type="submit" class="btn btn-success col-md-4 ml-2">Selanjutnya</button>
+                    <div class="col-sm-12 d-flex justify-content-end">
+                        <button type="submit"
+                            class="btn btn-primary me-1 mb-1">Simpan  <i class="bi bi-save2"></i></button>
+                    </div>
                 </form>
                 @endif
             </div>

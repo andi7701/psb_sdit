@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
             <h3>Data Pendukung</h3>
-            <p class="text-subtitle text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p class="text-subtitle text-muted">Berikut ini formulir untuk data pendukung</p>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-first">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -36,6 +36,12 @@
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   <strong>{{ $message }}</strong>
 </div>
+@endif
+@if ($dataortu == NULL)
+    <div class="alert alert-danger alert-dismissible show fade">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>Mohon Lengkapi Data Orang Tua. <a href="{{ route('dataortu') }}">Klik Disini</a></strong>
+    </div>
 @endif
 
 <div class="col-12">
@@ -193,11 +199,17 @@
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
                             </div>
-                        
-                            <button type="submit" class="btn btn-success mb-2">Simpan</button>
-                            <a href="{{ route('dataortu') }}" class="btn btn-primary col-md-4 offset-md-2 px-2">Kembali</a>
-                        
-                            <a href="" class="btn btn-warning col-md-4 ml-2">Cetak</a>
+                    
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <a href="{{ route('dataortu') }}"
+                                    class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                                    <button type="submit"
+                                    class="btn btn-light-secondary me-1 mb-1">Update <i class="bi bi-arrow-counterclockwise"></i></button>
+                                    @if ($datapendukung != NULL && $dataortu != NULL && $datasiswa != NULL)    
+                                        <a href="#"
+                                        class="btn btn-info me-1 mb-1"><i class="bi bi-printer"></i> Cetak</a>
+                                    @endif
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -352,9 +364,10 @@
                                 </div>
                             </div>
                         
-                            <a href="{{ route('dataortu') }}" class="btn btn-primary col-md-4  offset-md-2 px-2">Kembali</a>
-                        
-                            <button type="submit" class="btn btn-success col-md-4 ml-2">Simpan</button>
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn btn-primary me-1 mb-1">Simpan  <i class="bi bi-save2"></i></button>
+                            </div>
                         </div>
                     </div>
                 </form>

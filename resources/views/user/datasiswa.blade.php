@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
             <h3>Data Siswa</h3>
-            <p class="text-subtitle text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p class="text-subtitle text-muted">Berikut ini Formulir untuk data siswa</p>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-first">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -42,7 +42,8 @@
     <div class="card">
         <div class="card-content">
             <div class="card-body">
-                @if ($datasiswa != NULL)
+                @if ($datasiswa != NULL) 
+                {{-- jika data sudah ada tidak kosong --}}
                 <form action="{{ route('updatesiswa', $datasiswa->id) }}" method="POST" class="form form-vertical">
                     <div class="form-body">
                         <div class="row">
@@ -336,7 +337,10 @@
                                             @enderror
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">Next</button>
+                                <div class="col-sm-12 d-flex justify-content-end">
+                                    <button type="submit"
+                                        class="btn btn-primary me-1 mb-1">Update  <i class="bi bi-arrow-right-square"></i></button>
+                                </div>
                             </div>
                         </div>
                 </form>
@@ -633,7 +637,10 @@
                                             @enderror
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">Next</button>
+                                <div class="col-sm-12 d-flex justify-content-end">
+                                    <button type="submit"
+                                        class="btn btn-primary me-1 mb-1">Simpan  <i class="bi bi-save2"></i></button>
+                                </div>
                             </div>
                         </div>
                 </form>

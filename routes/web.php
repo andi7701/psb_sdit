@@ -47,7 +47,7 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');
         Route::get('pendaftar/datasuccess', [DataPendaftarController::class,'indexdatasuccess'])->name('datasuccess');
 
-        // My Admin
+        // My  profile Admin
         Route::get('myadmin',[ProfileAdminController::class,'show'])->name('myadmin');
         Route::put('myadmin/{id}', [ProfileUserController::class,'update'])->name('updateadmin');
         Route::get('resetpasswordadmin',[ProfileAdminController::class,'resetpass'])->name('resetpasswordadmin');

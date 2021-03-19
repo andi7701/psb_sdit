@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataOrtu;
+use App\Models\DataSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -13,7 +14,8 @@ class DataOrtuController extends Controller
     public function show()
     {
         $dataortu = DataOrtu::select('*')->where('users_id', Auth::user()->id)->first();
-        return view('user.dataortu', compact('dataortu'));
+        $datasiswa = DataSiswa::first();
+        return view('user.dataortu', compact('dataortu','datasiswa'));
     }
 
     public function store(Request $request)
