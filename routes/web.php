@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DataOrtuController;
+use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\DataPendukungController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\ProfileUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,8 +36,24 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     
     Route::prefix('/backend')->middleware('role:Admin')->group(function(){
-        Route::get('showcontact',[ContactController::class, 'showadmin'])->name('showcontact');
-        Route::put('updatecontact/{id}',[ContactController::class, 'update'])->name('updatecontact');
+
+        // manage contact
+        Route::get('settings/showcontact',[ContactController::class, 'showadmin'])->name('showcontact');
+        Route::put('settings/updatecontact/{id}',[ContactController::class, 'update'])->name('updatecontact');
+
+        // manage pendaftar
+        Route::get('pendaftar/dataregister', [DataPendaftarController::class,'indexdataregister'])->name('dataregister');
+        Route::get('pendaftar/datapayment', [DataPendaftarController::class,'indexdatapayment'])->name('datapayment');
+        Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');
+        Route::get('pendaftar/datasuccess', [DataPendaftarController::class,'indexdatasuccess'])->name('datasuccess');
+
+        // My Admin
+        Route::get('myadmin',[ProfileAdminController::class,'show'])->name('myadmin');
+        Route::put('myadmin/{id}', [ProfileUserController::class,'update'])->name('updateadmin');
+        Route::get('resetpasswordadmin',[ProfileAdminController::class,'resetpass'])->name('resetpasswordadmin');
+        Route::put('resetpasswordadmin/{id}',[ProfileAdminController::class,'updatepass'])->name('updatepasswordadmin');
+
+
     });
     
     Route::prefix('/user')->middleware('role:User')->group(function(){
