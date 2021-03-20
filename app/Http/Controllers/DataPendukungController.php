@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataOrtu;
 use App\Models\DataPendukung;
 use App\Models\DataSiswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -17,6 +18,7 @@ class DataPendukungController extends Controller
         $datapendukung = DataPendukung::select('*')->where('users_id', Auth::user()->id)->first();
         $dataortu = DataOrtu::first();
         $datasiswa = DataSiswa::first();
+        $user = User::first();
         return view('user.datapendukung', compact('datapendukung','dataortu','datasiswa'));
     }
 

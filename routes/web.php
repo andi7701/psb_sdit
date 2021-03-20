@@ -8,6 +8,7 @@ use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\ProfileUserController;
@@ -86,6 +87,9 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::put('myprofile/{id}', [ProfileUserController::class,'update'])->name('updateprofile');
             Route::get('resetpassword', [ProfileUserController::class,'resetpass'])->name('resetpassword');
             Route::put('resetpassword/{id}',[ProfileUserController::class,'updatepass'])->name('updatepassword');
+
+            // generate PDF
+            Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF'])->name('createpdfuser');
         });
 
         // Payment

@@ -46,47 +46,47 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function data_siswas()
     {
-        return $this->hasOne(DataSiswa::class);
+        return $this->hasOne(DataSiswa::class, 'users_id');
     }
 
     public function data_ortus()
     {
-        return $this->hasOne(DataOrtu::class);
+        return $this->hasOne(DataOrtu::class, 'users_id');
     }
 
     public function data_pendukung()
     {
-        return $this->hasOne(DataPendukung::class);
+        return $this->hasOne(DataPendukung::class, 'users_id');
     }
 
     public function surat_cash()
     {
-        return $this->hasMany(SuratCash::class);
+        return $this->hasMany(SuratCash::class,'users_id');
     }
 
     public function surat_install()
     {
-        return $this->hasMany(SuratInstallment::class);
+        return $this->hasMany(SuratInstallment::class, 'users_id');
     }
 
     public function pengumuman()
     {
-        return $this->hasMany(Pengumuman::class);
+        return $this->hasMany(Pengumuman::class, 'users_id');
     }
 
     public function file_pendukung()
     {
-        return $this->hasMany(FilePendukung::class);
+        return $this->hasMany(FilePendukung::class, 'users_id');
     }
 
     public function payment()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Payment::class, 'users_id');
     }
 
     public function repayment()
     {
-        return $this->hasMany(RePayment::class);
+        return $this->hasMany(RePayment::class, 'users_id');
     }
 
 }
