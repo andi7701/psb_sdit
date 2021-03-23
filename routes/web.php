@@ -43,7 +43,10 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::put('settings/updatecontact/{id}',[ContactController::class, 'update'])->name('updatecontact');
 
         // manage pendaftar
+        // data register
         Route::get('pendaftar/dataregister', [DataPendaftarController::class,'indexdataregister'])->name('dataregister');
+        Route::get('pendaftar/dataregister/{id}', [DataPendaftarController::class,'showpayment'])->name('showbuktipayment');
+        
         Route::get('pendaftar/datapayment', [DataPendaftarController::class,'indexdatapayment'])->name('datapayment');
         Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');
         Route::get('pendaftar/datasuccess', [DataPendaftarController::class,'indexdatasuccess'])->name('datasuccess');
@@ -90,6 +93,7 @@ Route::middleware(['auth','verified'])->group(function(){
 
             // generate PDF
             Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF'])->name('createpdfuser');
+
         });
 
         // Payment

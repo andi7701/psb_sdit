@@ -44,14 +44,20 @@
             </thead>
             <tbody>
                 @foreach ($dataregister as $dr)     
+                {{-- @dd($dr->payment) --}}
                     <tr>
                         <td>{{ $dr->name }}</td>
                         <td>{{ $dr->email }}</td>
                         <td>{{ $dr->tahun_ajarans }}</td>
                         <td><span class="badge bg-success">{{ $dr->status }}</span></td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-info rounded-pill">Lihat</a>
-                            <a href="#" class="btn btn-sm btn-primary rounded-pill">Terima</a>
+                            @if ($dr->payments != NULL)
+                                <a href="{{ route('showbuktipayment', $dr->id) }}" target="_blank" class="btn btn-sm btn-info rounded-pill">Lihat Bukti</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill">Terima</a>
+                            @else
+                                <a href="#" target="_blank" class="disabled btn btn-sm btn-info rounded-pill">Lihat Bukti</a>
+                                <a href="#" class="disabled btn btn-sm btn-primary rounded-pill">Terima</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
