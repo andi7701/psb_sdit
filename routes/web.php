@@ -46,6 +46,7 @@ Route::middleware(['auth','verified'])->group(function(){
         // data register
         Route::get('pendaftar/dataregister', [DataPendaftarController::class,'indexdataregister'])->name('dataregister');
         Route::get('pendaftar/dataregister/{id}', [DataPendaftarController::class,'showpayment'])->name('showbuktipayment');
+        Route::put('pendaftar/dataregister/{id}/register', [DataPendaftarController::class,'updateregister'])->name('updateregister');
         
         Route::get('pendaftar/datapayment', [DataPendaftarController::class,'indexdatapayment'])->name('datapayment');
         Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');

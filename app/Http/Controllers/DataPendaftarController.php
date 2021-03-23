@@ -7,6 +7,7 @@ use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response as FacadesResponse;
+use Session;
 
 class DataPendaftarController extends Controller
 {
@@ -26,6 +27,18 @@ class DataPendaftarController extends Controller
         $user = User::findOrFail($id);
 
         return view('backend.bukti.buktipayment', compact('user'));
+    }
+
+    public function updateregister($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->status = 'Payment';
+        $user->save();
+
+        Session::flash('success','Calon Siswa Berhasil Diterima');
+
+        return redirect()->back();
     }
 
     public function indexdatapayment()

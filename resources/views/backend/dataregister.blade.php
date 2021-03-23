@@ -30,6 +30,18 @@
 @endsection
 
 @section('content')
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-dismissible show fade">
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>{{ $message }}</strong>
+</div>
+@elseif($message = Session::get('error'))
+<div class="alert alert-danger alert-dismissible show fade">
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <strong>{{ $message }}</strong>
+</div>
+@endif
+
 <div class="card">
     <div class="card-body">
         <table class="table table-striped" id="table1">
@@ -44,7 +56,6 @@
             </thead>
             <tbody>
                 @foreach ($dataregister as $dr)     
-                {{-- @dd($dr->payment) --}}
                     <tr>
                         <td>{{ $dr->name }}</td>
                         <td>{{ $dr->email }}</td>
@@ -53,7 +64,15 @@
                         <td>
                             @if ($dr->payments != NULL)
                                 <a href="{{ route('showbuktipayment', $dr->id) }}" target="_blank" class="btn btn-sm btn-info rounded-pill">Lihat Bukti</a>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill">Terima</a>
+                                <form
+                                method="POST"
+                                action="{{ route('updateregister', $dr->id) }}"
+                                class="d-inline"
+                                onsubmit="return confirm('Yakin Untuk Menerima Pembayaran ini?')">
+                                @csrf
+                                @method('PUT')
+                                <input type="submit" name="status" value="Terima" class="btn btn-sm btn-primary rounded-pill">
+                                </form>
                             @else
                                 <a href="#" target="_blank" class="disabled btn btn-sm btn-info rounded-pill">Lihat Bukti</a>
                                 <a href="#" class="disabled btn btn-sm btn-primary rounded-pill">Terima</a>
