@@ -50,7 +50,8 @@
                     <td>{{ $dp->tahun_ajarans }}</td>
                     <td><span class="badge bg-success">{{ $dp->status }}</span></td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-primary rounded-pill">Lihat Detail</a>
+                        <a href="{{ route('showdatapayment', $dp->id) }}" target="_blank" class="btn btn-sm btn-info rounded-pill">Lihat Detail</a>
+                        <a href="#" class="btn btn-sm btn-primary rounded-pill">Terima</a>
                     </td>
                 </tr>
                 @endforeach

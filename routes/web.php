@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DataOrtuController;
+use App\Http\Controllers\DataPaymentController;
 use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\DataPendukungController;
 use App\Http\Controllers\DataSiswaController;
@@ -42,13 +43,18 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::get('settings/showcontact',[ContactController::class, 'showadmin'])->name('showcontact');
         Route::put('settings/updatecontact/{id}',[ContactController::class, 'update'])->name('updatecontact');
 
-        // manage pendaftar
-        // data register
+        // Manage Pendaftar
+
+        // Data Register
         Route::get('pendaftar/dataregister', [DataPendaftarController::class,'indexdataregister'])->name('dataregister');
-        Route::get('pendaftar/dataregister/{id}', [DataPendaftarController::class,'showpayment'])->name('showbuktipayment');
+        Route::get('pendaftar/dataregister/{id}', [DataPendaftarController::class,'showregister'])->name('showbuktipayment');
         Route::put('pendaftar/dataregister/{id}/register', [DataPendaftarController::class,'updateregister'])->name('updateregister');
         
-        Route::get('pendaftar/datapayment', [DataPendaftarController::class,'indexdatapayment'])->name('datapayment');
+        // Data Payment
+        Route::get('pendaftar/datapayment', [DataPaymentController::class,'indexdatapayment'])->name('datapayment');
+        Route::get('pendaftar/datapayment/{id}', [DataPaymentController::class,'showdatapayment'])->name('showdatapayment');
+
+
         Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');
         Route::get('pendaftar/datasuccess', [DataPendaftarController::class,'indexdatasuccess'])->name('datasuccess');
 

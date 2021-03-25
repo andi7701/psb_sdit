@@ -22,7 +22,7 @@ class DataPendaftarController extends Controller
         return view('backend.dataregister',compact('dataregister'));
     }
 
-    public function showpayment($id)
+    public function showregister($id)
     {
         $user = User::findOrFail($id);
 
@@ -41,14 +41,6 @@ class DataPendaftarController extends Controller
         return redirect()->back();
     }
 
-    public function indexdatapayment()
-    {
-        $datapayment = User::select('name','email','tahun_ajarans','status')
-                                        ->where('status','payment')
-                                        ->orderBy('created_at', 'DESC')
-                                        ->get();
-        return view('backend.datapayment', compact('datapayment'));
-    }
 
     public function indexdatarepayment()
     {
