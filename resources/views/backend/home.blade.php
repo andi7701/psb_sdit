@@ -89,5 +89,9 @@
     </div>
 </div>
 @endsection
+
+@section('js')
+<script src="{{ asset('assets/vendors/apexcharts/apexcharts.js') }}"></script>
+@endsection
             
     

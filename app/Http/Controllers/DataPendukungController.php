@@ -15,10 +15,9 @@ class DataPendukungController extends Controller
     //
     public function show()
     {
-        $datapendukung = DataPendukung::select('*')->where('users_id', Auth::user()->id)->first();
+        $datapendukung = DataPendukung::select('*')->where('user_id', Auth::user()->id)->first();
         $dataortu = DataOrtu::first();
         $datasiswa = DataSiswa::first();
-        $user = User::first();
         return view('user.datapendukung', compact('datapendukung','dataortu','datasiswa'));
     }
 
@@ -48,7 +47,7 @@ class DataPendukungController extends Controller
         $datapendukung->nama_prestasi = $request->nama_prestasi;
         $datapendukung->tahun_prestasi = $request->tahun_prestasi;
         $datapendukung->penyelenggara = $request->penyelenggara;
-        $datapendukung->users_id = Auth::user()->id;
+        $datapendukung->user_id = Auth::user()->id;
         $datapendukung->save();
 
         Session::flash('success','Data Pendukung berhasil di simpan');
@@ -83,7 +82,7 @@ class DataPendukungController extends Controller
         $datapendukung->nama_prestasi = $request->nama_prestasi;
         $datapendukung->tahun_prestasi = $request->tahun_prestasi;
         $datapendukung->penyelenggara = $request->penyelenggara;
-        $datapendukung->users_id = Auth::user()->id;
+        $datapendukung->user_id = Auth::user()->id;
         $datapendukung->save();
 
         Session::flash('success','Data Pendukung berhasil di update');

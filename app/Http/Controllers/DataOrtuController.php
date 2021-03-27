@@ -13,7 +13,7 @@ class DataOrtuController extends Controller
     //
     public function show()
     {
-        $dataortu = DataOrtu::select('*')->where('users_id', Auth::user()->id)->first();
+        $dataortu = DataOrtu::select('*')->where('user_id', Auth::user()->id)->first();
         $datasiswa = DataSiswa::first();
         return view('user.dataortu', compact('dataortu','datasiswa'));
     }
@@ -71,7 +71,7 @@ class DataOrtuController extends Controller
         $dataortu->pekerjaan_wali = $request->pekerjaan_wali;
         $dataortu->pendidikan_wali = $request->pendidikan_wali;
         $dataortu->penghasilan_wali = $request->penghasilan_wali;
-        $dataortu->users_id = Auth::user()->id;
+        $dataortu->user_id = Auth::user()->id;
         $dataortu->save();
 
         Session::flash('success','Data Orang Tua Tersimpan');
@@ -133,7 +133,7 @@ class DataOrtuController extends Controller
         $dataortu->pekerjaan_wali = $request->pekerjaan_wali;
         $dataortu->pendidikan_wali = $request->pendidikan_wali;
         $dataortu->penghasilan_wali = $request->penghasilan_wali;
-        $dataortu->users_id = Auth::user()->id;
+        $dataortu->user_id = Auth::user()->id;
         $dataortu->save();
 
         Session::flash('success','Data Orang Tua Terupdate');

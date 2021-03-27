@@ -12,7 +12,7 @@ class DataSiswaController extends Controller
     //
     public function show()
     {
-        $datasiswa = DataSiswa::select('*')->where('users_id', Auth::user()->id)->first();
+        $datasiswa = DataSiswa::select('*')->where('user_id', Auth::user()->id)->first();
         return view('user.datasiswa', compact('datasiswa'));
     }
 
@@ -56,7 +56,7 @@ class DataSiswaController extends Controller
         $datasiswa->hp = $request->hp;
         $datasiswa->email_siswa = $request->email_siswa;
         $datasiswa->no_akta = $request->no_akta;
-        $datasiswa->users_id = Auth::user()->id;
+        $datasiswa->user_id = Auth::user()->id;
         $datasiswa->save();
 
         Session::flash('success','Data Siswa Sudah Tersimpan');
@@ -105,7 +105,7 @@ class DataSiswaController extends Controller
         $datasiswa->hp = $request->hp;
         $datasiswa->email_siswa = $request->email_siswa;
         $datasiswa->no_akta = $request->no_akta;
-        $datasiswa->users_id = Auth::user()->id;
+        $datasiswa->user_id = Auth::user()->id;
         $datasiswa->save();
 
         Session::flash('success','Data Siswa Berhasil Terupdate');

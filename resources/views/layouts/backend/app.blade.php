@@ -7,9 +7,9 @@
         <div id="main" class='layout-navbar'>
            @include('layouts.backend.navbar')
            <div id="main-content">
+               @yield('breadcrumb')
                <div class="page-heading">
                    <div class="page-title">
-                       @yield('breadcrumb')
                 <section class="section">
                     @yield('content')
                 </section>

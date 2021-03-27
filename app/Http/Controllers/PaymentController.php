@@ -13,7 +13,7 @@ class PaymentController extends Controller
     //
     public function show()
     {
-        $payment = Payment::select('*')->where('users_id', Auth::user()->id)->first();
+        $payment = Payment::select('*')->where('user_id', Auth::user()->id)->first();
         return view('user.payment', compact('payment'));
     }
 
@@ -35,7 +35,7 @@ class PaymentController extends Controller
             $payment->payment = $files;
         }
 
-        $payment->users_id = Auth::user()->id;
+        $payment->user_id = Auth::user()->id;
         $payment->save();
 
         Session::flash('success','Bukti Transfer Sukses Di kirim');
@@ -67,7 +67,9 @@ class PaymentController extends Controller
             $payment->payment = $files;
         }
 
+        $payment->user_id = Auth::user()->id;
         $payment->save();
+        
         Session::flash('success','Sukses Update Bukti Transfer');
 
         return redirect()->back();

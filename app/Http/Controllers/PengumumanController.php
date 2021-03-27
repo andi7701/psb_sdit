@@ -11,7 +11,7 @@ class PengumumanController extends Controller
     //
     public function show()
     {
-        $pengumuman = Pengumuman::select('*')->where('users_id', Auth::user()->id)->first();
+        $pengumuman = Pengumuman::select('*')->where('user_id', Auth::user()->id)->first();
         return view('user.pengumuman', compact('pengumuman'));
     }
 }

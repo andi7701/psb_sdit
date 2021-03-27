@@ -14,7 +14,7 @@ class FilePendukungController extends Controller
     //
     public function upload()
     {
-        $filependukung = FilePendukung::select('*')->where('users_id', Auth::user()->id)->first();
+        $filependukung = FilePendukung::select('*')->where('user_id', Auth::user()->id)->first();
         return view('user.upload', compact('filependukung'));
     }
 
@@ -81,7 +81,7 @@ class FilePendukungController extends Controller
         $filependukung->akte_kelahiran = $akte;
         $filependukung->ktp_ayah = $ktpayahs;
         $filependukung->ktp_ibu = $ktpibus;
-        $filependukung->users_id = Auth::user()->id;
+        $filependukung->user_id = Auth::user()->id;
         $filependukung->save();
 
         Session::flash('success','Upload File Pendukung Sukses!');

@@ -15,9 +15,9 @@ class AddRelationSuratInstallmentToUser extends Migration
     {
         Schema::table('surat_installments', function (Blueprint $table) {
             //
-            $table->bigInteger('users_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
 
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,7 +30,7 @@ class AddRelationSuratInstallmentToUser extends Migration
     {
         Schema::table('surat_installments', function (Blueprint $table) {
             //
-            $table->dropColumn('users_id');
+            $table->dropColumn('user_id');
         });
     }
 }

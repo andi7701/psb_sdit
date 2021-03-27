@@ -205,8 +205,8 @@
                                     class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                                     <button type="submit"
                                     class="btn btn-light-secondary me-1 mb-1">Update <i class="bi bi-arrow-counterclockwise"></i></button>
-                                    @if ($datapendukung != NULL && $dataortu != NULL && $datasiswa != NULL && $user->foto != NULL)    
-                                        <a href="{{ route('createpdfuser', $datapendukung->users_id) }}"
+                                    @if ($datapendukung != NULL && $dataortu != NULL && $datasiswa != NULL)    
+                                        <a href="{{ route('createpdfuser', $datapendukung->user_id) }}"
                                         class="btn btn-info me-1 mb-1"><i class="bi bi-printer"></i> Cetak</a>
                                     @endif
                             </div>
