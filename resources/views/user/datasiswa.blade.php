@@ -356,8 +356,8 @@
                                             <fieldset class="form-group">
                                                 <select name="status_member" class="form-select @error('status_member') is-invalid @enderror" id="statusmember">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="member">Member (Asal Sekolah Darma Bangsa)</option>
-                                                    <option value="nonmember">Non Member (Luar Sekolah Darma Bangsa)</option>
+                                                    <option value="Member">Member (Asal Sekolah Darma Bangsa)</option>
+                                                    <option value="NonMember">Non Member (Luar Sekolah Darma Bangsa)</option>
                                                 </select>
                                                 @error('status_member')
                                                 <span class="invalid-feedback" role="alert">
@@ -376,13 +376,13 @@
                                             <fieldset class="form-group">
                                                 <select name="jenjang" class="form-select @error('jenjang') is-invalid @enderror" id="jenjangsiswa">
                                                     <option value="">--Pilih Jenjang--</option>
-                                                    <option value="toodler">Toodler (Usia 2 Tahun)</option>
-                                                    <option value="nursery">Nursery (Usia 3 Tahun)</option>
-                                                    <option value="tka">TK A (Usia 4 Tahun)</option>
-                                                    <option value="tkb">TK B (Usia 5 Tahun)</option>
-                                                    <option value="sd">SD</option>
-                                                    <option value="smp">SMP</option>
-                                                    <option value="sma">SMA</option>
+                                                    <option value="Toodler">Toodler (Usia 2 Tahun)</option>
+                                                    <option value="Nursery">Nursery (Usia 3 Tahun)</option>
+                                                    <option value="TK A">TK A (Usia 4 Tahun)</option>
+                                                    <option value="TK B">TK B (Usia 5 Tahun)</option>
+                                                    <option value="SD">SD</option>
+                                                    <option value="SMP">SMP</option>
+                                                    <option value="SMA">SMA</option>
                                                 </select>
                                                 @error('jenjang')
                                             <span class="invalid-feedback" role="alert">
@@ -401,8 +401,8 @@
                                             <fieldset class="form-group">
                                                 <select name="jenis_kelamin" class="form-select @error('jenis_kelamin') is-invalid @enderror" id="jeniskelamin">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="lakilaki">Laki-Laki</option>
-                                                    <option value="perempuan">Perempuan</option>
+                                                    <option value="Laki Laki">Laki-Laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
                                                 </select>
                                                 @error('jenis_kelamin')
                                                     <span class="invalid-feedback" role="alert">
@@ -503,12 +503,12 @@
                                             <fieldset class="form-group">
                                                 <select name="agama" class="form-select @error('agama') is-invalid @enderror" id="agama">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="islam">Islam</option>
-                                                    <option value="kristenprotestan">Kristen Protestan</option>
-                                                    <option value="kristenkatolik">Kristen Katolik</option>
-                                                    <option value="hindu">Hindu</option>
-                                                    <option value="budha">Budha</option>
-                                                    <option value="konghuchu">Konghuchu</option>
+                                                    <option value="Islam">Islam</option>
+                                                    <option value="Kristen Protestan">Kristen Protestan</option>
+                                                    <option value="Kristen Katolik">Kristen Katolik</option>
+                                                    <option value="Hindu">Hindu</option>
+                                                    <option value="Budha">Budha</option>
+                                                    <option value="Konghuchu">Konghuchu</option>
                                                 </select>
                                                 @error('agama')
                                                     <span class="invalid-feedback" role="alert">
@@ -562,9 +562,9 @@
                                             <fieldset class="form-group">
                                                 <select name="alat_transport" class="form-select @error('alat_transport') is-invalid @enderror" id="transportasi">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="motor">Motor</option>
-                                                    <option value="mobil">Mobil</option>
-                                                    <option value="bus">Bus Abudemen</option>
+                                                    <option value="Motor">Motor</option>
+                                                    <option value="Mobil">Mobil</option>
+                                                    <option value="Bus">Bus Abudemen</option>
                                                 </select>
                                                 @error('alat_transport')
                                                     <span class="invalid-feedback" role="alert">
@@ -583,10 +583,10 @@
                                             <fieldset class="form-group">
                                                 <select name="tempat_tinggal" class="form-select @error('tempat_tinggal') is-invalid @enderror" id="tempattinggal">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="rumah">Rumah</option>
-                                                    <option value="kost">Kost</option>
-                                                    <option value="apartemen">Apartemen</option>
-                                                    <option value="kontrakan">Kontrakan</option>
+                                                    <option value="Rumah">Rumah</option>
+                                                    <option value="Kost">Kost</option>
+                                                    <option value="Apartemen">Apartemen</option>
+                                                    <option value="Kontrakan">Kontrakan</option>
                                                 </select>
                                                 @error('tempat_tinggal')
                                                     <span class="invalid-feedback" role="alert">

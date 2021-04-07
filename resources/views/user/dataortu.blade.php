@@ -475,9 +475,9 @@
                                         <option value="SD">SD</option>
                                         <option value="SMP">SMP</option>
                                         <option value="SMA">SMA/SMK</option>
-                                        <option value="sarjana">S1 (Sarjana)</option>
-                                        <option value="magister">S2 (Magister)</option>
-                                        <option value="doktoral">S3 (Doktoral)</option>
+                                        <option value="Sarjana (S1)">S1 (Sarjana)</option>
+                                        <option value="Magister (S2)">S2 (Magister)</option>
+                                        <option value="Doktroral (S3)">S3 (Doktoral)</option>
                                     </select>
                                     @error('pendidikan_ayah')
                                                     <span class="invalid-feedback" role="alert">
@@ -608,9 +608,9 @@
                                         <option value="SD">SD</option>
                                         <option value="SMP">SMP</option>
                                         <option value="SMA">SMA/SMK</option>
-                                        <option value="sarjana">S1 (Sarjana)</option>
-                                        <option value="magister">S2 (Magister)</option>
-                                        <option value="doktoral">S3 (Doktoral)</option>
+                                        <option value="Sarjana (S1)">S1 (Sarjana)</option>
+                                        <option value="Magister (S2)">S2 (Magister)</option>
+                                        <option value="Doktoral (S3)">S3 (Doktoral)</option>
                                     </select>
                                     @error('pendidikan_ibu')
                                                     <span class="invalid-feedback" role="alert">
@@ -762,9 +762,9 @@
                                         <option value="SD">SD</option>
                                         <option value="SMP">SMP</option>
                                         <option value="SMA">SMA/SMK</option>
-                                        <option value="sarjana">S1 (Sarjana)</option>
-                                        <option value="magister">S2 (Magister)</option>
-                                        <option value="doktoral">S3 (Doktoral)</option>
+                                        <option value="Sarjana (S1)">S1 (Sarjana)</option>
+                                        <option value="Magister (S2)">S2 (Magister)</option>
+                                        <option value="Doktoral (S3)">S3 (Doktoral)</option>
                                     </select>
                                     <p><small class="badge bg-danger"><b>Jika Tidak Ada Dapat Di kosongkan</b></small>
                                     </p>
