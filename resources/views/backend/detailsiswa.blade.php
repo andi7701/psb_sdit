@@ -112,7 +112,7 @@
                           <label for="staticEmail" class="col-sm-2 col-form-label">NIS</label>
                           <div class="col-sm-10">
                               @if ($user->data_siswas->nis != NULL)    
-                                  <input type="text" readonly class="form-control-plaintext disabled"  value="{{ $user->data_siswas->nis }}">
+                                  <input type="text" readonly class="form-control-plaintext disabled"  value=": {{ $user->data_siswas->nis }}">
                               @else
                               <input type="text" readonly class="form-control-plaintext disabled"  value=":">
                               @endif
@@ -123,7 +123,7 @@
                           <label for="staticEmail" class="col-sm-2 col-form-label">NPSN</label>
                           <div class="col-sm-10">
                               @if ($user->data_siswas->npsn != NULL)    
-                                  <input type="text" readonly class="form-control-plaintext disabled"  value="{{ $user->data_siswas->npsn }}">
+                                  <input type="text" readonly class="form-control-plaintext disabled"  value=": {{ $user->data_siswas->npsn }}">
                               @else
                               <input type="text" readonly class="form-control-plaintext disabled"  value=":">
                               @endif
@@ -576,7 +576,11 @@
                             <div class="col-xl-4 col-md-6 col-sm-12 mt-5">
                               <div class="card">
                                 <div class="card-content">
-                                    <img src="{{ asset('assets/images/bg/SDB.jpg') }}" class="card-img-top img-fluid" alt="singleminded">
+                                  @if ($user->file_pendukungs != NULL)
+                                      <img src="{{  url('/image_KK/'. $user->file_pendukungs->kartu_keluarga) }}" class="card-img-top img-fluid" alt="singleminded">
+                                  @else
+                                      <img src="{{ asset('assets/images/bg/No-Image-Found-400x264.png') }}" class="card-img-top img-fluid" alt="singleminded">
+                                  @endif
                                     <div class="card-body">
                                         <h5 class="card-title">Kartu Keluarga</h5>
                                         <a href="" class="btn btn-primary">Download</a>
@@ -586,7 +590,11 @@
   
                                <div class="card">
                                 <div class="card-content">
-                                    <img src="{{ asset('assets/images/bg/SDB.jpg') }}" class="card-img-top img-fluid" alt="singleminded">
+                                  @if ($user->file_pendukungs != NULL)
+                                  <img src="{{  url('/image_KK/'. $user->file_pendukungs->ktp_ibu) }}" class="card-img-top img-fluid" alt="singleminded">
+                              @else
+                                  <img src="{{ asset('assets/images/bg/No-Image-Found-400x264.png') }}" class="card-img-top img-fluid" alt="singleminded">
+                              @endif
                                     <div class="card-body">
                                         <h5 class="card-title">KTP Ibu</h5>
                                         <a href="" class="btn btn-primary">Download</a>
@@ -600,7 +608,11 @@
                           <div class="col-xl-4 col-md-6 col-sm-12 mt-5">
                             <div class="card">
                               <div class="card-content">
-                                  <img src="{{ asset('assets/images/bg/SDB.jpg') }}" class="card-img-top img-fluid" alt="singleminded">
+                                @if ($user->file_pendukungs != NULL)
+                                <img src="{{  url('/image_KK/'. $user->file_pendukungs->akte_kelahiran) }}" class="card-img-top img-fluid" alt="singleminded">
+                            @else
+                                <img src="{{ asset('assets/images/bg/No-Image-Found-400x264.png') }}" class="card-img-top img-fluid" alt="singleminded">
+                            @endif
                                   <div class="card-body">
                                       <h5 class="card-title">Akte Kelahiran</h5>
                                       <a href="" class="btn btn-primary">Download</a>
@@ -610,7 +622,11 @@
   
                             <div class="card">
                               <div class="card-content">
-                                  <img src="{{ asset('assets/images/bg/SDB.jpg') }}" class="card-img-top img-fluid" alt="singleminded">
+                                @if ($user->file_pendukungs != NULL)
+                                <img src="{{  url('/image_KK/'. $user->file_pendukungs->raport_terakhir) }}" class="card-img-top img-fluid" alt="singleminded">
+                            @else
+                                <img src="{{ asset('assets/images/bg/No-Image-Found-400x264.png') }}" class="card-img-top img-fluid" alt="singleminded">
+                            @endif
                                   <div class="card-body">
                                       <h5 class="card-title">Raport Terakhir</h5>
                                       <a href="" class="btn btn-primary">Download</a>
@@ -624,7 +640,11 @@
                         <div class="col-xl-4 col-md-6 col-sm-12 mt-5">
                           <div class="card">
                             <div class="card-content">
-                                <img src="{{ asset('assets/images/bg/SDB.jpg') }}" class="card-img-top img-fluid" alt="singleminded">
+                              @if ($user->file_pendukungs != NULL)
+                              <img src="{{  url('/image_KK/'. $user->file_pendukungs->ktp_ayah) }}" class="card-img-top img-fluid" alt="singleminded">
+                          @else
+                              <img src="{{ asset('assets/images/bg/No-Image-Found-400x264.png') }}" class="card-img-top img-fluid" alt="singleminded">
+                          @endif
                                 <div class="card-body">
                                     <h5 class="card-title">KTP Ayah</h5>
                                     <a href="" class="btn btn-primary">Download</a>

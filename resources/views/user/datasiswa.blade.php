@@ -56,8 +56,8 @@
                                             <fieldset class="form-group">
                                                 <select name="status_member" class="form-select @error('status_member') is-invalid @enderror" id="statusmember">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="member" {{ $datasiswa->status_member == 'member' ? 'selected' : '' }}>Member (Asal Sekolah Darma Bangsa)</option>
-                                                    <option value="nonmember" {{ $datasiswa->status_member == 'nonmember' ? 'selected' : '' }}>Non Member (Luar Sekolah Darma Bangsa)</option>
+                                                    <option value="Member" {{ $datasiswa->status_member == 'Member' ? 'selected' : '' }}>Member (Asal Sekolah Darma Bangsa)</option>
+                                                    <option value="Non Member" {{ $datasiswa->status_member == 'Non Member' ? 'selected' : '' }}>Non Member (Luar Sekolah Darma Bangsa)</option>
                                                 </select>
                                                 @error('status_member')
                                                 <span class="invalid-feedback" role="alert">
@@ -76,13 +76,13 @@
                                             <fieldset class="form-group">
                                                 <select name="jenjang" class="form-select @error('jenjang') is-invalid @enderror" id="jenjangsiswa">
                                                     <option value="">--Pilih Jenjang--</option>
-                                                    <option value="toodler" {{ $datasiswa->jenjang == 'toodler' ? 'selected' : '' }}>Toodler (Usia 2 Tahun)</option>
-                                                    <option value="nursery" {{ $datasiswa->jenjang == 'nursery' ? 'selected' : '' }}>Nursery (Usia 3 Tahun)</option>
-                                                    <option value="tka" {{ $datasiswa->jenjang == 'tka' ? 'selected' : '' }}>TK A (Usia 4 Tahun)</option>
-                                                    <option value="tkb" {{ $datasiswa->jenjang == 'tkb' ? 'selected' : '' }}>TK B (Usia 5 Tahun)</option>
-                                                    <option value="sd" {{ $datasiswa->jenjang == 'sd' ? 'selected' : '' }}>SD</option>
-                                                    <option value="smp" {{ $datasiswa->jenjang == 'smp' ? 'selected' : '' }}>SMP</option>
-                                                    <option value="sma" {{ $datasiswa->jenjang == 'sma' ? 'selected' : '' }}>SMA</option>
+                                                    <option value="Toodler" {{ $datasiswa->jenjang == 'Toodler' ? 'selected' : '' }}>Toodler (Usia 2 Tahun)</option>
+                                                    <option value="Nursery" {{ $datasiswa->jenjang == 'Nursery' ? 'selected' : '' }}>Nursery (Usia 3 Tahun)</option>
+                                                    <option value="TK A" {{ $datasiswa->jenjang == 'TK A' ? 'selected' : '' }}>TK A (Usia 4 Tahun)</option>
+                                                    <option value="TK B" {{ $datasiswa->jenjang == 'TK B' ? 'selected' : '' }}>TK B (Usia 5 Tahun)</option>
+                                                    <option value="SD" {{ $datasiswa->jenjang == 'SD' ? 'selected' : '' }}>SD</option>
+                                                    <option value="SMP" {{ $datasiswa->jenjang == 'SMP' ? 'selected' : '' }}>SMP</option>
+                                                    <option value="SMA" {{ $datasiswa->jenjang == 'SMA' ? 'selected' : '' }}>SMA</option>
                                                 </select>
                                                 @error('jenjang')
                                             <span class="invalid-feedback" role="alert">
@@ -101,8 +101,8 @@
                                             <fieldset class="form-group">
                                                 <select name="jenis_kelamin" class="form-select @error('jenis_kelamin') is-invalid @enderror" id="jeniskelamin">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="lakilaki" {{ $datasiswa->jenis_kelamin == 'lakilaki' ? 'selected' : '' }}>Laki-Laki</option>
-                                                    <option value="perempuan" {{ $datasiswa->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                                    <option value="Laki-Laki" {{ $datasiswa->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                                    <option value="Perempuan" {{ $datasiswa->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                                 </select>
                                                 @error('jenis_kelamin')
                                                     <span class="invalid-feedback" role="alert">
@@ -203,12 +203,12 @@
                                             <fieldset class="form-group">
                                                 <select name="agama" class="form-select @error('agama') is-invalid @enderror" id="agama">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="islam" {{ $datasiswa->agama == 'islam' ? 'selected' : '' }}>Islam</option>
-                                                    <option value="kristenprotestan" {{ $datasiswa->agama == 'kristenprotestan' ? 'selected' : '' }}>Kristen Protestan</option>
-                                                    <option value="kristenkatolik" {{ $datasiswa->agama == 'kristenkatolik' ? 'selected' : '' }}>Kristen Katolik</option>
-                                                    <option value="hindu" {{ $datasiswa->agama == 'hindu' ? 'selected' : '' }}>Hindu</option>
-                                                    <option value="budha" {{ $datasiswa->agama == 'budha' ? 'selected' : '' }}>Budha</option>
-                                                    <option value="konghuchu" {{ $datasiswa->agama == 'konghuchu' ? 'selected' : '' }}>Konghuchu</option>
+                                                    <option value="Islam" {{ $datasiswa->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                                    <option value="Kristen Protestan" {{ $datasiswa->agama == 'Kristen Protestan' ? 'selected' : '' }}>Kristen Protestan</option>
+                                                    <option value="Kristen Katolik" {{ $datasiswa->agama == 'Kristen Katolik' ? 'selected' : '' }}>Kristen Katolik</option>
+                                                    <option value="Hindu" {{ $datasiswa->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                                    <option value="Budha" {{ $datasiswa->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                                    <option value="Konghuchu" {{ $datasiswa->agama == 'Konghuchu' ? 'selected' : '' }}>Konghuchu</option>
                                                 </select>
                                                 @error('agama')
                                                     <span class="invalid-feedback" role="alert">
@@ -262,9 +262,9 @@
                                             <fieldset class="form-group">
                                                 <select name="alat_transport" class="form-select @error('alat_transport') is-invalid @enderror" id="transportasi">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="motor" {{ $datasiswa->alat_transport == 'motor' ? 'selected' : '' }}>Motor</option>
-                                                    <option value="mobil" {{ $datasiswa->alat_transport == 'mobil' ? 'selected' : '' }}>Mobil</option>
-                                                    <option value="bus" {{ $datasiswa->alat_transport == 'bus' ? 'selected' : '' }}>Bus Abudemen</option>
+                                                    <option value="Motor" {{ $datasiswa->alat_transport == 'Motor' ? 'selected' : '' }}>Motor</option>
+                                                    <option value="Mobil" {{ $datasiswa->alat_transport == 'Mobil' ? 'selected' : '' }}>Mobil</option>
+                                                    <option value="Bus" {{ $datasiswa->alat_transport == 'Bus' ? 'selected' : '' }}>Bus Abudemen</option>
                                                 </select>
                                                 @error('alat_transport')
                                                     <span class="invalid-feedback" role="alert">
@@ -283,10 +283,10 @@
                                             <fieldset class="form-group">
                                                 <select name="tempat_tinggal" class="form-select @error('tempat_tinggal') is-invalid @enderror" id="tempattinggal">
                                                     <option value="">--Pilih Status--</option>
-                                                    <option value="rumah" {{ $datasiswa->tempat_tinggal == 'rumah' ? 'selected' : '' }}>Rumah</option>
-                                                    <option value="kost" {{ $datasiswa->tempat_tinggal == 'kost' ? 'selected' : '' }}>Kost</option>
-                                                    <option value="apartemen" {{ $datasiswa->tempat_tinggal == 'apartemen' ? 'selected' : '' }}>Apartemen</option>
-                                                    <option value="kontrakan" {{ $datasiswa->tempat_tinggal == 'kontrakan' ? 'selected' : '' }}>Kontrakan</option>
+                                                    <option value="Rumah" {{ $datasiswa->tempat_tinggal == 'Rumah' ? 'selected' : '' }}>Rumah</option>
+                                                    <option value="Kost" {{ $datasiswa->tempat_tinggal == 'Kost' ? 'selected' : '' }}>Kost</option>
+                                                    <option value="Apartemen" {{ $datasiswa->tempat_tinggal == 'Apartemen' ? 'selected' : '' }}>Apartemen</option>
+                                                    <option value="Kontrakan" {{ $datasiswa->tempat_tinggal == 'Kontrakan' ? 'selected' : '' }}>Kontrakan</option>
                                                 </select>
                                                 @error('tempat_tinggal')
                                                     <span class="invalid-feedback" role="alert">
