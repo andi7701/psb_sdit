@@ -667,6 +667,18 @@
     {{-- end --}}
 
 
+    @if ($message = Session::get('success'))
+          <div class="alert alert-success alert-dismissible show fade">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>{{ $message }}</strong>
+          </div>
+      @elseif($message = Session::get('error'))
+          <div class="alert alert-danger alert-dismissible show fade">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>{{ $message }}</strong>
+          </div>
+      @endif
+      
     {{-- Buat Pengumuman CBT --}}
     <div class="accordion" id="cardAccordion">
       <div class="card">
@@ -678,77 +690,147 @@
           <div id="collapseOne" class="collapse pt-1" aria-labelledby="headingOne"
               data-parent="#cardAccordion">
               <div class="card-body">
-                <form action="#" method="POST" class="form form form-vertical">
-                  
-                <div class="row">
+                @if ($user->pengumumans != NULL)
+                          
+                            <ul>
+                                <li>Tanggal Ujian : {{Carbon\Carbon::parse($user->pengumumans->tgl_ujian)->locale('id')->isoFormat('LL')}}</li>
+                                <li>Username : {{ $user->pengumumans->username }}</li>
+                                <li>Password : {{ $user->pengumumans->password }}</li>
+                                <li>Token : {{ $user->pengumumans->token }}</li>
+                                <li>Alamat Test : {{ $user->pengumumans->url }}</a></li>
+                            </ul>
+                        
+                    <form action="{{ route('updatecbt', $user->pengumumans->id) }}" method="POST" class="form form form-vertical">     
+                        @csrf
+                        @method('PUT')
+                            <div class="row">
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <div class="col-md-12">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Tanggal Ujian</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="date" id="tgl_ujian" class="form-control" name="tgl_ujian" value="{{ $user->pengumumans->tgl_ujian }}">
+                                      </div>
+                                    </div>
+                                </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="col-lg-2 col-3">
-                                <label class="col-form-label">URL CBT</label>
-                            </div>
-                            <div class="col-lg-10 col-9">
-                                <input type="text" id="url" class="form-control" name="url" placeholder="Ex : cbt.darmabangsa.sch.id" autocomplete="off">
-                            </div>
-                        </div>
-                      </div>
+                                <div class="col-md-12">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Token Ujian</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="text" class="form-control" name="token" value="{{ $user->pengumumans->token }}">
+                                      </div>
+                                    </div>
+                                </div>
 
-                      <div class="col-md-6">
-                          <div class="form-group row align-items-center">
-                              <div class="col-lg-2 col-3">
-                                  <label class="col-form-label">Username</label>
-                              </div>
-                              <div class="col-lg-10 col-9">
-                                  <input type="text" id="username" class="form-control" name="username"
-                                      placeholder="Username" autocomplete="off">
-                              </div>
-                          </div>
-                      </div>
+                                <div class="col-md-12">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Soal Benar</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="number" class="form-control" name="soal_benar" required value="{{ $user->pengumumans->soal_benar }}">
+                                      </div>
+                                    </div>
+                                </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="col-lg-2 col-3">
-                                <label class="col-form-label">Password</label>
-                            </div>
-                            <div class="col-lg-10 col-9">
-                                <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="Password">
-                            </div>
-                        </div>
-                      </div>
+                                <div class="col-md-12">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Soal Salah</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="number" class="form-control" name="soal_salah" required value="{{ $user->pengumumans->soal_salah }}">
+                                      </div>
+                                    </div>
+                                </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="col-lg-2 col-3">
-                                <label class="col-form-label">Token</label>
-                            </div>
-                            <div class="col-lg-10 col-9">
-                                <input type="text" id="token" class="form-control" name="token" autocomplete="off"
-                                    placeholder="Token Soal">
-                            </div>
-                          </div>
-                      </div>
+                                <div class="col-sm-12 d-flex justify-content-end">
+                                  <button type="submit"
+                                      class="btn btn-primary me-1 mb-1">Update</button>
+                                  <button type="reset"
+                                      class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="col-lg-2 col-3">
-                                <label class="col-form-label">Tanggal Ujian</label>
                             </div>
-                            <div class="col-lg-10 col-9">
-                                <input type="date" id="tgl_ujian" class="form-control" name="tgl_ujian">
+                    </form>
+                @else
+                    <form action="{{ route('createcbt') }}" method="POST" class="form form form-vertical">     
+                        @csrf
+                            <div class="row">
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <div class="col-md-6">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">URL CBT</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="text" id="url" class="form-control" name="url" placeholder="Ex : cbt.darmabangsa.sch.id">
+                                      </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-lg-2 col-3">
+                                            <label class="col-form-label">Username</label>
+                                        </div>
+                                        <div class="col-lg-10 col-9">
+                                            <input type="text" id="username" class="form-control" name="username"
+                                                placeholder="Username" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Password</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="password" id="password" class="form-control" name="password"
+                                              placeholder="Password">
+                                      </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Token</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="text" id="token" class="form-control" name="token" autocomplete="off"
+                                              placeholder="Token Soal">
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="form-group row align-items-center">
+                                      <div class="col-lg-2 col-3">
+                                          <label class="col-form-label">Tanggal Ujian</label>
+                                      </div>
+                                      <div class="col-lg-10 col-9">
+                                          <input type="date" id="tgl_ujian" class="form-control" name="tgl_ujian">
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 d-flex justify-content-end">
+                                  <button type="submit"
+                                      class="btn btn-primary me-1 mb-1">Submit</button>
+                                  <button type="reset"
+                                      class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                </div>
+
                             </div>
-                          </div>
-                      </div>
-
-                      <div class="col-sm-12 d-flex justify-content-end">
-                        <button type="submit"
-                            class="btn btn-primary me-1 mb-1">Submit</button>
-                        <button type="reset"
-                            class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                      </div>
-
-                    </div>
-                </form>
+                    </form>
+                @endif
               </div>
           </div>
       </div>

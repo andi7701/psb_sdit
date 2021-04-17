@@ -64,7 +64,11 @@
                                 <li>Soal Benar : {{ $pengumuman->soal_benar }}</li>
                                 <li>Soal Salah : {{ $pengumuman->soal_salah }}</li>
                                 <li>Nilai :  {{ $pengumuman->nilai }}</li>
-                                <span class="badge bg-success">{{ $pengumuman->hasil }}</span>
+                                @if ($pengumuman->soal_benar >= 10 && $pengumuman->soal_benar <= 50)
+                                            <span class="badge bg-success">{{ $pengumuman->hasil }}</span>
+                                @else
+                                            <span class="badge bg-danger">{{ $pengumuman->hasil }}</span>
+                                @endif
                             </ul>
                         </div>
                     </div>

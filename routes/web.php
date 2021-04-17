@@ -53,6 +53,8 @@ Route::middleware(['auth','verified'])->group(function(){
         // Data Payment
         Route::get('pendaftar/datapayment', [DataPaymentController::class,'indexdatapayment'])->name('datapayment');
         Route::get('pendaftar/datapayment/{id}', [DataPaymentController::class,'showdatapayment'])->name('showdatapayment');
+        Route::post('pendaftar/datapayment/createcbt',[DataPaymentController::class,'createcbt'])->name('createcbt');
+        Route::put('pendaftar/datapayment/updatecbt/{id}',[DataPaymentController::class,'updatecbt'])->name('updatecbt');
 
 
         Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');
