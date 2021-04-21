@@ -92,10 +92,10 @@ class FilePendukungController extends Controller
     public function uploadupdate(Request $request, $id)
     {
         $request->validate([
-            'kartu_keluarga' => 'size:2048|mimes:jpeg,jpg,pdf',
-            'akte_kelahiran' => 'size:2048|mimes:jpeg,jpg,pdf',
-            'ktp_ayah' => 'size:2048|mimes:jpeg,jpg,pdf',
-            'ktp_ibu' => 'size:2048|mimes:jpeg,jpg,pdf',
+            'kartu_keluarga' => 'max:2048|mimes:jpeg,jpg,pdf',
+            'akte_kelahiran' => 'max:2048|mimes:jpeg,jpg,pdf',
+            'ktp_ayah' => 'max:2048|mimes:jpeg,jpg,pdf',
+            'ktp_ibu' => 'max:2048|mimes:jpeg,jpg,pdf',
             'raport_terakhir' => 'max:2048|mimes:jpeg,jpg,pdf'
         ]);
 
