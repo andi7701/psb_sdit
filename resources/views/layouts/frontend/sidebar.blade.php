@@ -78,12 +78,14 @@
                 </li>
 
                 @if (Auth::user()->status == 'RePayment')
-                <li class="sidebar-item">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-cash"></i>
-                        <span>Re-Payment</span>
-                    </a>
-                </li>
+                    @if (Auth::user()->pengumumans->hasil == 'Selamat Anda Lulus')    
+                    <li class="sidebar-item {{ (request()->is('user/repayment')) ? 'active' : '' }}">
+                        <a href="{{ route('showrepayment') }}" class='sidebar-link'>
+                            <i class="bi bi-cash"></i>
+                            <span>Re-Payment</span>
+                        </a>
+                    </li>
+                    @endif
                 @endif
 
                 <li class="sidebar-item {{ (request()->is('user/kontakkami')) ? 'active' : '' }}">

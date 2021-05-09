@@ -51,7 +51,19 @@
                     <td><span class="badge bg-success">{{ $dp->status }}</span></td>
                     <td>
                         <a href="{{ route('showdatapayment', $dp->id) }}" target="_blank" class="btn btn-sm btn-info rounded-pill">Lihat Detail</a>
-                        <a href="#" class="btn btn-sm btn-primary rounded-pill">Terima</a>
+                        @if ($dp->pengumumans->hasil == 'Selamat Anda Lulus')    
+                        <form
+                                method="POST"
+                                action="{{ route('updatedatapayment', $dp->id) }}"
+                                class="d-inline"
+                                onsubmit="return confirm('Yakin Untuk Menerima Siswa ini?')">
+                                @csrf
+                                @method('PUT')
+                                <input type="submit" name="status" value="Terima" class="btn btn-sm btn-primary rounded-pill">
+                                </form>
+                        @else
+                            <input type="submit" name="status" value="Terima" class="btn btn-sm btn-primary rounded-pill" disabled>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

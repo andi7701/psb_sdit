@@ -41,16 +41,6 @@ class DataPendaftarController extends Controller
         return redirect()->back();
     }
 
-
-    public function indexdatarepayment()
-    {
-        $datarepayment = User::select('name','email','tahun_ajarans','status')
-                                            ->where('status','repayment')
-                                            ->orderBy('created_at', 'DESC')
-                                            ->get();
-        return view('backend.datarepayment', compact('datarepayment'));
-    }
-
     public function indexdatasuccess()
     {
         $datasuccess = User::select('name','email','tahun_ajarans','status')

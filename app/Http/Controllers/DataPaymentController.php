@@ -16,7 +16,10 @@ class DataPaymentController extends Controller
                                         ->where('status','payment')
                                         ->orderBy('created_at', 'DESC')
                                         ->get();
-        return view('backend.datapayment', compact('datapayment'));
+
+        return view('backend.datapayment', [
+            'datapayment' => $datapayment
+        ]);
     }
 
     public function showdatapayment($id)
@@ -56,14 +59,13 @@ class DataPaymentController extends Controller
 
     public function updatecbt(Request $request, $id)
     {
-        $pengumuman = Pengumuman::findOrFail($id);
-
         $request->validate([
              'tgl_ujian' => 'nullable|date',
             'token' => 'nullable|string|min:4',
-            'soal_benar' => 'nullable|integer',
-            'soal_salah' => 'nullable|integer',
+            'soal_benar' => 'nullable|integer|max:50',
+            'soal_salah' => 'nullable|integer|max:50',
         ]);
+        $pengumuman = Pengumuman::findOrFail($id);
 
         $pengumuman->tgl_ujian = $request->tgl_ujian;
         $pengumuman->token = $request->token;
@@ -120,6 +122,18 @@ class DataPaymentController extends Controller
         $pengumuman->save();
 
         Session::flash('success','Pengumuman CBT Sukses Terupdate');
+
+        return redirect()->back();
+    }
+
+    public function  updatedatapayment($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->status = 'RePayment';
+        $user->save();
+
+        Session::flash('success','Calon Siswa Berhasil Diterima');
 
         return redirect()->back();
     }

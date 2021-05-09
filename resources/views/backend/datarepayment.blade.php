@@ -27,6 +27,11 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('assets/vendors/simple-datatables/style.css') }}">
+<style>
+    .dropdown-menu{
+        overflow: visible
+    }
+</style>
 @endsection
 
 @section('content')
@@ -50,13 +55,23 @@
                     <td>{{ $drp->tahun_ajarans }}</td>
                     <td><span class="badge bg-success">{{ $drp->status }}</span></td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-secondary rounded-pill">Lihat</a>
-                        <a href="#" class="btn btn-sm btn-primary rounded-pill">Buat Surat</a>
+                        <a href="#" class="btn btn-sm btn-secondary rounded-pill">Lihat Bukti</a>
+                            <div class="dropdown d-inline">
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill dropdown-toggle me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buat Surat</a>
+                                <div class="dropdown-menu" style="overflow: hidden" aria-labelledby="dropdownMenuButton" style="margin: 0px;">
+                                    <a href="#" class="dropdown-item">Surat Cash</a>
+                                    <a href="#" class="dropdown-item">Surat Kredit</a>
+                                </div>
+                            </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <div class="dropdown-menu" style="overflow: hidden" aria-labelledby="dropdownMenuButton" style="margin: 0px;">
+                                    <a href="#" class="dropdown-item">Surat Cash</a>
+                                    <a href="#" class="dropdown-item">Surat Kredit</a>
+                                </div>
     </div>
 </div>
 @endsection

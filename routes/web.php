@@ -5,6 +5,7 @@ use App\Http\Controllers\DataOrtuController;
 use App\Http\Controllers\DataPaymentController;
 use App\Http\Controllers\DataPendaftarController;
 use App\Http\Controllers\DataPendukungController;
+use App\Http\Controllers\DataRepaymentController;
 use App\Http\Controllers\DataSiswaController;
 use App\Http\Controllers\FilePendukungController;
 use App\Http\Controllers\HomeController;
@@ -55,9 +56,11 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::get('pendaftar/datapayment/{id}', [DataPaymentController::class,'showdatapayment'])->name('showdatapayment');
         Route::post('pendaftar/datapayment/createcbt',[DataPaymentController::class,'createcbt'])->name('createcbt');
         Route::put('pendaftar/datapayment/updatecbt/{id}',[DataPaymentController::class,'updatecbt'])->name('updatecbt');
+        Route::put('pendaftar/datapayment/{id}/payment', [DataPaymentController::class,'updatedatapayment'])->name('updatedatapayment');
 
+        // Data Repayment
+        Route::get('pendaftar/datarepayment', [DataRepaymentController::class,'indexdatarepayment'])->name('datarepayment');
 
-        Route::get('pendaftar/datarepayment', [DataPendaftarController::class,'indexdatarepayment'])->name('datarepayment');
         Route::get('pendaftar/datasuccess', [DataPendaftarController::class,'indexdatasuccess'])->name('datasuccess');
 
         // My  profile Admin
@@ -102,6 +105,12 @@ Route::middleware(['auth','verified'])->group(function(){
 
             // generate PDF
             Route::get('generate-pdf/{id}', [PDFController::class, 'generatePDF'])->name('createpdfuser');
+
+            // RePayment
+            Route::get('repayment', [DataRepaymentController::class,'showrepayment'])->name('showrepayment');
+            Route::post('storerepayment', [DataRepaymentController::class,'storerepayment'])->name('storerepayment');
+            Route::put('repayment/{id}', [DataRepaymentController::class,'updaterepayment'])->name('updaterepayment');
+
 
         });
 
