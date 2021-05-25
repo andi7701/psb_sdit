@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response as FacadesResponse;
 use Session;
+use Carbon\Carbon;
 
 class DataPendaftarController extends Controller
 {
@@ -16,10 +17,17 @@ class DataPendaftarController extends Controller
     {
         $dataregister = User::select('*')
                                         ->where('status','register')
+                                        ->where('tahun_ajarans', Carbon::now()->year)
                                         ->orderBy('created_at', 'DESC')
                                         ->get();
 
-        return view('backend.dataregister',compact('dataregister'));
+        // Data Tahun
+        $tahun = User::select('tahun_ajarans')
+          ->where('role','User')
+          ->groupBy('tahun_ajarans')
+          ->orderby('tahun_ajarans','DESC')->get();
+
+        return view('backend.dataregister',compact('dataregister','tahun'));
     }
 
     public function showregister($id)
@@ -67,5 +75,49 @@ class DataPendaftarController extends Controller
 
     //     return $response;
     // }
-    
+
+    // Filter Tahun Ajaran
+    public function tahun_ajaran(Request $request)
+    {
+      $dataregister = User::where('status','register')
+        ->where('tahun_ajarans', $request->tahun_ajarans)
+        ->orderBy('created_at', 'DESC')
+        ->get();
+
+      $return = "";
+      foreach($dataregister as $item) {
+        $return .="<tr>
+          <td>".$item->name."</td>
+          <td>".$item->email."</td>
+          <td>".$item->tahun_ajarans."</td>";
+          $return .="
+            <td> <span class='badge bg-success'>$item->status</span></td>
+          ";
+          if ($item->payments != NULL){
+              $return .="
+              <td>
+                <a href='{{ route('showbuktipayment', $dr->id) }}' target='_blank' class='btn btn-sm btn-info rounded-pill'>Lihat Bukti</a>
+                <form
+                method='POST'
+                action='{{ route('updateregister', $dr->id) }}'
+                class='d-inline'
+                onsubmit='return confirm('Yakin Untuk Menerima Pembayaran ini?')'>
+                @csrf
+                @method('PUT')
+                <input type='submit' name='status' value='Terima' class='btn btn-sm btn-primary rounded-pill'>
+                </form>
+              </td>";
+          } else {
+            $return .= "
+            <td>
+              <a href='#' target='_blank' class='disabled btn btn-sm btn-info rounded-pill'>Lihat Bukti</a>
+              <a href='#' class='disabled btn btn-sm btn-primary rounded-pill'>Terima</a>
+            </td>";
+          }
+        $return .= "</td>
+        </tr>";
+      }
+      return $return;
+    }
+
 }
