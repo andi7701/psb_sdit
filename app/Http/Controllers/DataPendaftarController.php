@@ -79,10 +79,16 @@ class DataPendaftarController extends Controller
     // Filter Tahun Ajaran
     public function tahun_ajaran(Request $request)
     {
-      $dataregister = User::where('status','register')
+      if ($request->tahun_ajarans != 0) {
+        $dataregister = User::where('status','register')
         ->where('tahun_ajarans', $request->tahun_ajarans)
         ->orderBy('created_at', 'DESC')
         ->get();
+      } else {
+        $dataregister = User::where('status','register')
+        ->orderBy('created_at', 'DESC')
+        ->get();
+      }
 
       $return = "";
       foreach($dataregister as $item) {
@@ -96,7 +102,6 @@ class DataPendaftarController extends Controller
           if ($item->payments != NULL){
               $return .="
               <td>
-                <a href='{{ route('showbuktipayment', $dr->id) }}' target='_blank' class='btn btn-sm btn-info rounded-pill'>Lihat Bukti</a>
                 <form
                 method='POST'
                 action='{{ route('updateregister', $dr->id) }}'
@@ -108,7 +113,7 @@ class DataPendaftarController extends Controller
                 </form>
               </td>";
           } else {
-            $return .= "
+            $return .="
             <td>
               <a href='#' target='_blank' class='disabled btn btn-sm btn-info rounded-pill'>Lihat Bukti</a>
               <a href='#' class='disabled btn btn-sm btn-primary rounded-pill'>Terima</a>

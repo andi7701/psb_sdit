@@ -70,7 +70,8 @@ Route::middleware(['auth','verified'])->group(function(){
         Route::put('resetpasswordadmin/{id}',[ProfileAdminController::class,'updatepass'])->name('updatepasswordadmin');
 
         // Filter
-        Route::get('filter-tahun-ajaran',[DataPendaftarController::class,'tahun_ajaran']);
+        Route::get('filter-tahun-ajaran',[DataPendaftarController::class,'tahun_ajaran']); // Filter Register
+        Route::get('filter-tahun-ajaran',[DataPaymentController::class,'tahun_ajaran']); // Filter Payment
 
 
     });
