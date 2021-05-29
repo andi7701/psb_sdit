@@ -16,7 +16,7 @@ class DataPendaftarController extends Controller
     public function indexdataregister()
     {
         $dataregister = User::select('*')
-                                        ->where('status','register')
+                                        ->where('status','Register')
                                         ->where('tahun_ajarans', Carbon::now()->year)
                                         ->orderBy('created_at', 'DESC')
                                         ->get();
@@ -80,12 +80,12 @@ class DataPendaftarController extends Controller
     public function tahun_ajaran(Request $request)
     {
       if ($request->tahun_ajarans != 0) {
-        $dataregister = User::where('status','register')
+        $dataregister = User::where('status','Register')
         ->where('tahun_ajarans', $request->tahun_ajarans)
         ->orderBy('created_at', 'DESC')
         ->get();
       } else {
-        $dataregister = User::where('status','register')
+        $dataregister = User::where('status','Register')
         ->orderBy('created_at', 'DESC')
         ->get();
       }

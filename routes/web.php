@@ -71,7 +71,7 @@ Route::middleware(['auth','verified'])->group(function(){
 
         // Filter
         Route::get('filter-tahun-ajaran',[DataPendaftarController::class,'tahun_ajaran']); // Filter Register
-        Route::get('filter-tahun-ajaran',[DataPaymentController::class,'tahun_ajaran']); // Filter Payment
+        Route::get('filter-tahun-ajaran-payment',[DataPaymentController::class,'tahun_ajaran']); // Filter Payment
 
 
     });

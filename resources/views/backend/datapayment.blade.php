@@ -109,7 +109,7 @@
     $("#filter").click(function(){
 
       var tahun_ajarans  = $("#tahun_ajarans").val();
-      $.get('/backend/filter-tahun-ajaran',{'_token': $('meta[name=csrf-token]').attr('content'),tahun_ajarans:tahun_ajarans}, function(resp){
+      $.get('/backend/filter-tahun-ajaran-payment',{'_token': $('meta[name=csrf-token]').attr('content'),tahun_ajarans:tahun_ajarans}, function(resp){
       $("#refresh_body").html(resp);
       });
     });
