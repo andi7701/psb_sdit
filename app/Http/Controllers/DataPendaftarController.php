@@ -59,23 +59,6 @@ class DataPendaftarController extends Controller
         return view('backend.datasuccess',compact('datasuccess'));
     }
 
-    // public function showpayment($foto)
-    // {
-    //     $path = public_path('Payment/'. $foto);
-
-    //     if(!File::exists($path)) {
-    //         abort(404);
-    //     }
-
-    //     $file = File::get($path);
-    //     $type = File::mimeType($path);
-
-    //     $response = FacadesResponse::make($file, 200);
-    //     $response->header("Content-Type", $type);
-
-    //     return $response;
-    // }
-
     // Filter Tahun Ajaran
     public function tahun_ajaran(Request $request)
     {

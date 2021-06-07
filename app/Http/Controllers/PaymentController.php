@@ -20,7 +20,7 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'payment' => 'required|max:2024|mimes:png,jpg,jpeg,pdf',
+            'payment' => 'required|max:2024|mimes:png,jpg,jpeg',
         ]);
 
         $payment = new Payment;

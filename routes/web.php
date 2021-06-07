@@ -61,6 +61,7 @@ Route::middleware(['auth','verified'])->group(function(){
         // Data Repayment
         Route::get('pendaftar/datarepayment', [DataRepaymentController::class,'indexdatarepayment'])->name('datarepayment');
 
+        // Data Sukses
         Route::get('pendaftar/datasuccess', [DataPendaftarController::class,'indexdatasuccess'])->name('datasuccess');
 
         // My  profile Admin

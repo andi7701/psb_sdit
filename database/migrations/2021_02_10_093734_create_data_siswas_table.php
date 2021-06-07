@@ -30,7 +30,7 @@ class CreateDataSiswasTable extends Migration
             $table->string('alat_transport');
             $table->string('tempat_tinggal');
             $table->string('hp')->nullable();
-            $table->string('email_siswa')->unique()->nullable();
+            $table->string('email_siswa')->nullable();
             $table->string('no_akta');
             $table->timestamps();
         });
