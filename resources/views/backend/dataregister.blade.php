@@ -43,7 +43,31 @@
 @endif
 
 <div class="card">
+
     <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-3">
+            <div class="mb-3">
+              <select name="tahun_ajarans" id="tahun_ajarans" class="form-control">
+                <option value="0">Pilih Tahun</option>
+                @foreach ($tahun as $tahuns)
+                  <option value="{{$tahuns->tahun_ajarans}}">{{$tahuns->tahun_ajarans}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="mb-3">
+              <select name="" id="pilihjenjang" class="form-control">
+                <option value="selected">Pilih Jenjang</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-primary" id="filter">Filter</button>
+          </div>
+        </div>
         <table class="table table-striped" id="table1">
             <thead>
                 <tr>
@@ -54,8 +78,8 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($dataregister as $dr)     
+            <tbody id="refresh_body">
+                @foreach ($dataregister as $dr)
                     <tr>
                         <td>{{ $dr->name }}</td>
                         <td>{{ $dr->email }}</td>
@@ -88,9 +112,20 @@
 
 @section('js')
 <script src="{{ asset('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
-<script>
+<script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
+
+<script type="text/javascript">
     // Simple Datatable
     let table1 = document.querySelector('#table1');
     let dataTable = new simpleDatatables.DataTable(table1);
+
+    // Filter Tahun Ajaran
+    $("#filter").click(function(){
+
+      var tahun_ajarans  = $("#tahun_ajarans").val();
+      $.get('/backend/filter-tahun-ajaran',{'_token': $('meta[name=csrf-token]').attr('content'),tahun_ajarans:tahun_ajarans}, function(resp){
+      $("#refresh_body").html(resp);
+      });
+    });
 </script>
 @endsection

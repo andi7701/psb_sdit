@@ -107,7 +107,7 @@
          <div class="col-md-10 offset-1">
             <div class="mb-3">
                 <input name="payment" class="form-control @error('payment') is-invalid @enderror" type="file" id="payment">
-                <span class="badge bg-primary">Max:2 MB. Format : JPG,JPEG, PDF</span>
+                <span class="badge bg-primary">Max:2 MB. Format : JPG,JPEG</span>
                 @error('payment')
                    <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>

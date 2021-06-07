@@ -3,6 +3,14 @@
 /public/storage
 /storage/*.key
 /vendor
+/public/fotoprofile
+/public/image_Akte
+/public/image_KK
+/public/image_KTPAyah
+/public/image_KTPIbu
+/public/image_Raport
+/public/img
+/public/Payment
 .env
 .env.backup
 .phpunit.result.cache
