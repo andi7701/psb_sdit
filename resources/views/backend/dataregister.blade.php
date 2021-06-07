@@ -49,7 +49,7 @@
           <div class="col-md-3">
             <div class="mb-3">
               <select name="tahun_ajarans" id="tahun_ajarans" class="form-control">
-                <option value="selected">Pilih Tahun</option>
+                <option value="0">Pilih Tahun</option>
                 @foreach ($tahun as $tahuns)
                   <option value="{{$tahuns->tahun_ajarans}}">{{$tahuns->tahun_ajarans}}</option>
                 @endforeach
@@ -121,6 +121,7 @@
 
     // Filter Tahun Ajaran
     $("#filter").click(function(){
+
       var tahun_ajarans  = $("#tahun_ajarans").val();
       $.get('/backend/filter-tahun-ajaran',{'_token': $('meta[name=csrf-token]').attr('content'),tahun_ajarans:tahun_ajarans}, function(resp){
       $("#refresh_body").html(resp);

@@ -67,7 +67,7 @@
                                             @enderror
                                     </div>
                                 </div>
-                                                        
+
                                 <div class="form-group">
                                     <label for="beratbadan">Berat Badan</label>
                                     <div class="position-relative">
@@ -79,7 +79,7 @@
                                             @enderror
                                     </div>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="jarakrumah">Jarak Rumah</label>
                                     <div class="position-relative">
@@ -105,7 +105,7 @@
                                             @enderror
                                     </div>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="jumlahsaudara">Jumlah Saudara</label>
                                     <div class="position-relative">
@@ -140,9 +140,9 @@
                                     </div>
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
-                            
 
-                            
+
+
                                 <div class="form-group ">
                                     <label for="tingkatprestasi">Tingkat Prestasi</label>
                                     <div class="position-relative">
@@ -155,7 +155,7 @@
                                     </div>
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="namaprestasi">Nama Prestasi</label>
                                     <div class="position-relative">
@@ -183,9 +183,9 @@
                                     </div>
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
-                            
 
-                            
+
+
                                 <div class="form-group">
                                     <label for="penyelenggara">Pihak Penyelenggara</label>
                                     <div class="position-relative">
@@ -199,13 +199,13 @@
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
                             </div>
-                    
+
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <a href="{{ route('dataortu') }}"
                                     class="btn btn-primary me-1 mb-1"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                                     <button type="submit"
                                     class="btn btn-light-secondary me-1 mb-1">Update <i class="bi bi-arrow-counterclockwise"></i></button>
-                                    @if ($datapendukung != NULL && $dataortu != NULL && $datasiswa != NULL)    
+                                    @if ($datapendukung != NULL && $dataortu != NULL && $datasiswa != NULL)
                                         <a href="{{ route('createpdfuser', $datapendukung->user_id) }}"
                                         class="btn btn-info me-1 mb-1"><i class="bi bi-printer"></i> Cetak</a>
                                     @endif
@@ -223,19 +223,19 @@
                                 <div class="form-group">
                                     <label for="tinggibadan">Tinggi Badan</label>
                                     <div class="position-relative">
-                                        <input type="number" name="tinggi_badan" id="tinggibadan" class="form-control @error('tinggi_badan') is-invalid @enderror" placeholder="Masukan Tinggi Badan (Cm)" autocomplete="disabled">
+                                        <input type="number" name="tinggi_badan" value="{{old('tinggi_badan')}}" id="tinggibadan" class="form-control @error('tinggi_badan') is-invalid @enderror" placeholder="Masukan Tinggi Badan (Cm)" autocomplete="disabled">
                                         @error('tinggi_badan')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $message }}</strong>
+                                          </span>
+                                        @enderror
                                     </div>
                                 </div>
-                                                        
+
                                 <div class="form-group">
                                     <label for="beratbadan">Berat Badan</label>
                                     <div class="position-relative">
-                                        <input type="number" name="berat_badan" id="beratbadan" class="form-control @error('berat_badan') is-invalid @enderror" placeholder="Masukan Berat Badan (Kg)" autocomplete="disabled">
+                                        <input type="number" name="berat_badan" value="{{old('berat_badan')}} id="beratbadan" class="form-control @error('berat_badan') is-invalid @enderror" placeholder="Masukan Berat Badan (Kg)" autocomplete="disabled">
                                         @error('berat_badan')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -243,11 +243,11 @@
                                             @enderror
                                     </div>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="jarakrumah">Jarak Rumah</label>
                                     <div class="position-relative">
-                                        <input type="number" name="jarak_rumah" id="jarakrumah" class="form-control @error('jarak_rumah') is-invalid @enderror" placeholder="Masukan Jarak Rumah (Km)" autocomplete="disabled">
+                                        <input type="number" name="jarak_rumah" value="{{old('jarak_rumah')}} id="jarakrumah" class="form-control @error('jarak_rumah') is-invalid @enderror" placeholder="Masukan Jarak Rumah (Km)" autocomplete="disabled">
                                         @error('jarak_rumah')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -261,7 +261,7 @@
                                 <div class="form-group">
                                     <label for="waktutempuh">Waktu Tempuh</label>
                                     <div class="position-relative">
-                                        <input type="number" name="waktu_tempuh" id="waktutempuh" class="form-control @error('waktu_tempuh') is-invalid @enderror" placeholder="Masukan Waktu Tempuh (Menit)" autocomplete="disabled">
+                                        <input type="number" name="waktu_tempuh" value="{{old('waktu_tempuh')}} id="waktutempuh" class="form-control @error('waktu_tempuh') is-invalid @enderror" placeholder="Masukan Waktu Tempuh (Menit)" autocomplete="disabled">
                                         @error('waktu_tempuh')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -269,11 +269,11 @@
                                             @enderror
                                     </div>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="jumlahsaudara">Jumlah Saudara</label>
                                     <div class="position-relative">
-                                        <input type="number" name="jumlah_saudara" id="jumlahsaudara" class="form-control @error('jumlah_saudara') is-invalid @enderror" placeholder="Masukan Jumlah Saudara" autocomplete="disabled">
+                                        <input type="number" name="jumlah_saudara" value="{{old('jumlah_saudara')}} id="jumlahsaudara" class="form-control @error('jumlah_saudara') is-invalid @enderror" placeholder="Masukan Jumlah Saudara" autocomplete="disabled">
                                         @error('jumlah_saudara')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -292,8 +292,8 @@
                                         <fieldset class="form-group">
                                             <select name="jenis_prestasi" class="form-select" id="jenisprestasi">
                                                 <option value="">--Pilih Status--</option>
-                                                <option value="akademik">Akademik</option>
-                                                <option value="nonakademik">Non Akademik</option>
+                                                <option value="akademik" {{old('jenis_prestasi' == 'akademik' ? 'selected' : '')}} >Akademik</option>
+                                                <option value="nonakademik" {{old('jenis_prestasi' == 'nonakademik' ? 'selected' : '')}}>Non Akademik</option>
                                             </select>
                                             @error('jenis_prestasi')
                                                 <span class="invalid-feedback" role="alert">
@@ -304,13 +304,13 @@
                                     </div>
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
-                            
 
-                            
+
+
                                 <div class="form-group ">
                                     <label for="tingkatprestasi">Tingkat Prestasi</label>
                                     <div class="position-relative">
-                                        <input type="text" name="tingkat" id="tingkatprestasi" class="form-control @error('tingkat') is-invalid @enderror" placeholder="Masukan Tingkat Prestasi (Kota/Kabupaten/Provinsi)" autocomplete="disabled">
+                                        <input type="text" name="tingkat" value="{{old('tingkat')}}" id="tingkatprestasi" class="form-control @error('tingkat') is-invalid @enderror" placeholder="Masukan Tingkat Prestasi (Kota/Kabupaten/Provinsi)" autocomplete="disabled">
                                         @error('tingkat')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -319,11 +319,11 @@
                                     </div>
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="namaprestasi">Nama Prestasi</label>
                                     <div class="position-relative">
-                                        <input type="text" name="nama_prestasi" id="namaprestasi" class="form-control @error('nama_prestasi') is-invalid @enderror" placeholder="Masukan Nama Prestasi" autocomplete="disabled">
+                                        <input type="text" name="nama_prestasi" value="{{old('nama_prestasi')}}" id="namaprestasi" class="form-control @error('nama_prestasi') is-invalid @enderror" placeholder="Masukan Nama Prestasi" autocomplete="disabled">
                                         @error('nama_prestasi')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -338,7 +338,7 @@
                                 <div class="form-group">
                                     <label for="tahunprestasi">Tahun Prestasi</label>
                                     <div class="position-relative">
-                                        <input type="number" name="tahun_prestasi" id="tahunprestasi" class="form-control @error('tahun_prestasi') is-invalid @enderror" placeholder="Masukan Tahun Prestasi" autocomplete="disabled">
+                                        <input type="number" name="tahun_prestasi" value="{{old('tahun_prestasi')}}" id="tahunprestasi" class="form-control @error('tahun_prestasi') is-invalid @enderror" placeholder="Masukan Tahun Prestasi" autocomplete="disabled">
                                         @error('tahun_prestasi')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -347,13 +347,13 @@
                                     </div>
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
-                            
 
-                            
+
+
                                 <div class="form-group">
                                     <label for="penyelenggara">Pihak Penyelenggara</label>
                                     <div class="position-relative">
-                                        <input type="text" name="penyelenggara" id="penyelenggara" class="form-control @error('penyelenggara') is-invalid @enderror" placeholder="Masukan Nama Pihak Penyelenggara" autocomplete="disabled">
+                                        <input type="text" name="penyelenggara" value="{{old('penyelenggara')}}" id="penyelenggara" class="form-control @error('penyelenggara') is-invalid @enderror" placeholder="Masukan Nama Pihak Penyelenggara" autocomplete="disabled">
                                         @error('penyelenggara')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -363,7 +363,7 @@
                                     <span class="badge bg-danger">Jika Tidak Ada Dapat Di kosongkan</span>
                                 </div>
                             </div>
-                        
+
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit"
                                     class="btn btn-primary me-1 mb-1">Simpan  <i class="bi bi-save2"></i></button>

@@ -6,6 +6,7 @@ use App\Models\Pengumuman;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class DataPaymentController extends Controller
 {
@@ -14,11 +15,20 @@ class DataPaymentController extends Controller
     {
         $datapayment = User::select('*')
                                         ->where('status','payment')
+                                        ->where('tahun_ajarans', Carbon::now()->year)
                                         ->orderBy('created_at', 'DESC')
                                         ->get();
 
+          // Data Tahun
+        $tahun = User::select('tahun_ajarans')
+          ->where('role','User')
+          ->groupBy('tahun_ajarans')
+          ->orderby('tahun_ajarans','DESC')->get();
+
+
         return view('backend.datapayment', [
-            'datapayment' => $datapayment
+            'datapayment' => $datapayment,
+            'tahun'       => $tahun
         ]);
     }
 
@@ -136,5 +146,54 @@ class DataPaymentController extends Controller
         Session::flash('success','Calon Siswa Berhasil Diterima');
 
         return redirect()->back();
+    }
+
+        // Filter Tahun Ajaran
+    public function tahun_ajaran(Request $request)
+    {
+      if ($request->tahun_ajarans != 0) {
+        $payment = User::where('status','payment')
+        ->where('tahun_ajarans', $request->tahun_ajarans)
+        ->orderBy('created_at', 'DESC')
+        ->get();
+      } else {
+        $payment = User::where('status','payment')
+        ->orderBy('created_at', 'DESC')
+        ->get();
+      }
+
+      $return = "";
+      foreach($payment as $item) {
+        $return .="<tr>
+          <td>".$item->name."</td>
+          <td>".$item->email."</td>
+          <td>".$item->tahun_ajarans."</td>";
+          $return .="
+            <td> <span class='badge bg-success'>$item->status</span></td>
+          ";
+          if ($item->pengumumans != NULL ?  $item->pengumumans->hasil == "Selamat Anda Lulus" : ""){
+              $return .="
+              <td>
+                <form
+                method='POST'
+                action='{{ route('updatedatapayment', $item->id) }}'
+                class='d-inline'
+                onsubmit='return confirm('Yakin Untuk Menerima Pembayaran ini?')'>
+                @csrf
+                @method('PUT')
+                <input type='submit' name='status' value='Terima' class='btn btn-sm btn-primary rounded-pill'>
+                </form>
+              </td>";
+          } else {
+            $return .="
+            <td>
+              <a href='/backend/pendaftar/datapayment/$item->id' target='_blank' class='btn btn-sm btn-info rounded-pill'>Lihat Detail</a>
+              <input type='submit' name='status' value='Terima' class='btn btn-sm btn-primary rounded-pill' disabled>
+            </td>";
+          }
+        $return .= "</td>
+        </tr>";
+      }
+      return $return;
     }
 }
