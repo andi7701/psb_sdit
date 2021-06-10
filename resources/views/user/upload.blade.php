@@ -43,8 +43,10 @@
     <div class="col-md-12">
         <div class="mb-3">
             <label for="kartukeluarga" class="form-label">Kartu Keluarga</label>
+            <br>
             @if($filependukung->kartu_keluarga)
                 <img src="{{ url('/image_KK/'. $filependukung->kartu_keluarga) }}" width="120px" alt="">
+                <span class="badge bg-info">File Kartu Keluarga sudah terupload</span>
             @else
                 Kartu keluarga Tidak Ada
             @endif
@@ -60,8 +62,10 @@
     <div class="col-md-12">
         <div class="mb-3">
             <label for="aktekelahiran" class="form-label">Akte Kelahiran</label>
+            <br>
             @if($filependukung->akte_kelahiran)
                 <img src="{{ url('/image_Akte/'. $filependukung->akte_kelahiran) }}" width="120px" alt="">
+                <span class="badge bg-info">File Akte Kelahiran sudah terupload</span>
             @else
                 Akte Kelahiran Tidak Ada
             @endif
@@ -77,8 +81,10 @@
     <div class="col-md-12">
         <div class="mb-3">
             <label for="ktpayah" class="form-label">KTP Ayah</label>
+            <br>
             @if($filependukung->ktp_ayah)
                 <img src="{{ url('/image_KTPAyah/'. $filependukung->ktp_ayah) }}" width="120px" alt="">
+                <span class="badge bg-info">File KTP Ayah sudah terupload</span>
             @else
                 KTP Ayah Tidak Ada
             @endif
@@ -94,8 +100,11 @@
     <div class="col-md-12">
         <div class="mb-3">
             <label for="ktpibu" class="form-label">KTP Ibu</label>
+            <br>
             @if($filependukung->ktp_ibu)
                 <img src="{{ url('/image_KTPIbu/'. $filependukung->ktp_ibu) }}" width="120px" alt="">
+                <span class="badge bg-info">File KTP Ibu sudah terupload</span>
+                <span class=""></span>
             @else
                 KTP Ibu Tidak Ada
             @endif
@@ -111,10 +120,12 @@
     <div class="col-md-12">
         <div class="mb-3">
             <label for="raport_terakhir" class="form-label">Ijazah / FC Raport Terakhir</label>
+            <br>
             @if($filependukung->raport_terakhir)
                 <img src="{{ url('/image_Raport/'. $filependukung->raport_terakhir) }}" width="120px" alt="">
+                <span class="badge bg-info">File Raport sudah terupload</span>
             @else
-                Raport Terakhir Tidak Ada
+                <span class="badge bg-danger">Raport Terakhir tidak</span>
             @endif
             <input name="raport_terakhir" class="form-control @error('raport_terakhir') is-invalid @enderror" type="file" id="raport_terakhir">
             <span class="badge bg-primary">Max:2 MB. Format : JPG,JPEG, PDF. <b>*Khusus Siswa Pindahan</b></span>

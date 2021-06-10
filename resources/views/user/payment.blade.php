@@ -34,22 +34,28 @@
              <div class="tab-pane fade show active" id="tntk" role="tabpanel"
                  aria-labelledby="home-tab">
                  <div class="alert alert-secondary mt-3">
-                  <h4 class="alert-heading">TNTK</h4>
+                  <h4 class="alert-heading">Jenjang TNTK</h4>
                   <p>Biaya Pendaftaran = Rp. 150.000  <br>Nomor Rekening    = <b>8239003900 (BNI) an Yayasan Darma Bangsa Edukasi</b></p>
+                  <br>
+                  <span><i>* Perhatikan Nomor Rekening Tiap Jenjang</i></span>
                </div>
              </div>
              <div class="tab-pane fade" id="sd" role="tabpanel"
                  aria-labelledby="profile-tab">
                  <div class="alert alert-secondary mt-3">
-                  <h4 class="alert-heading">SD</h4>
+                  <h4 class="alert-heading">Jenjang SD</h4>
                   <p>Biaya Pendaftaran = Rp. 150.000 <br>Nomor Rekening    = <b>1539003900 (BNI) an Yayasan Darma Bangsa Edukasi</b></p>
+                  <br>
+                  <span><i>* Perhatikan Nomor Rekening Tiap Jenjang</i></span>
                </div>
              </div>
              <div class="tab-pane fade" id="smp" role="tabpanel"
                  aria-labelledby="contact-tab">
                  <div class="alert alert-secondary mt-3">
-                  <h4 class="alert-heading">SMP</h4>
+                  <h4 class="alert-heading">Jenjang SMP</h4>
                   <p>Biaya Pendaftaran = Rp. 150.000 <br>Nomor Rekening    = <b>2639003900 (BNI) an Yayasan Darma Bangsa Edukasi</b></p>
+                  <br>
+                  <span><i>* Perhatikan Nomor Rekening Tiap Jenjang</i></span>
                </div>
              </div>
              <div class="tab-pane fade" id="sma" role="tabpanel"
@@ -57,6 +63,8 @@
                  <div class="alert alert-secondary mt-3">
                   <h4 class="alert-heading">SMA</h4>
                   <p>Biaya Pendaftaran = Rp. 150.000 <br> Nomor Rekening    = <b>7739003900 (BNI) an Yayasan Darma Bangsa Edukasi</b></p>
+                  <br>
+                  <span><i>* Perhatikan Nomor Rekening Tiap Jenjang</i></span>
                </div>
              </div>
          </div>
