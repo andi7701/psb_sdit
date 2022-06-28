@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class DataSiswaController extends Controller
 {
@@ -37,7 +37,7 @@ class DataSiswaController extends Controller
             'email_siswa' => 'email|nullable',
             'no_akta' => 'required|string'
         ]);
-        
+
         $datasiswa = new DataSiswa;
         $datasiswa->status_member = $request->status_member;
         $datasiswa->jenjang = $request->jenjang;
@@ -59,9 +59,8 @@ class DataSiswaController extends Controller
         $datasiswa->user_id = Auth::user()->id;
         $datasiswa->save();
 
-        Session::flash('success','Data Siswa Sudah Tersimpan');
+        Session::flash('success', 'Data Siswa Sudah Tersimpan');
         return redirect()->route('dataortu');
-
     }
 
     public function update(Request $request, $id)
@@ -87,7 +86,7 @@ class DataSiswaController extends Controller
         ]);
 
         $datasiswa = DataSiswa::findOrFail($id);
-        
+
         $datasiswa->status_member = $request->status_member;
         $datasiswa->jenjang = $request->jenjang;
         $datasiswa->jenis_kelamin = $request->jenis_kelamin;
@@ -108,8 +107,7 @@ class DataSiswaController extends Controller
         $datasiswa->user_id = Auth::user()->id;
         $datasiswa->save();
 
-        Session::flash('success','Data Siswa Berhasil Terupdate');
+        Session::flash('success', 'Data Siswa Berhasil Terupdate');
         return redirect()->route('dataortu');
-        
     }
 }

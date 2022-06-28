@@ -6,7 +6,7 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class PaymentController extends Controller
 {
@@ -26,9 +26,8 @@ class PaymentController extends Controller
         $payment = new Payment;
 
         $file = $request->file('payment');
-        if($file)
-        {
-            $files = time() ."_" . $file->getClientOriginalName();
+        if ($file) {
+            $files = time() . "_" . $file->getClientOriginalName();
             // folderpenyimpanan
             $lokasi_file = 'Payment';
             $file->move($lokasi_file, $files);
@@ -38,11 +37,10 @@ class PaymentController extends Controller
         $payment->user_id = Auth::user()->id;
         $payment->save();
 
-        Session::flash('success','Bukti Transfer Sukses Di kirim');
+        Session::flash('success', 'Bukti Transfer Sukses Di kirim');
 
 
         return redirect()->back();
-
     }
 
     public function update(Request $request, $id)
@@ -54,13 +52,11 @@ class PaymentController extends Controller
         $payment = Payment::findOrFail($id);
 
         $file = $request->file('payment');
-        if($file)
-        {
-            if($payment->payment && file_exists(public_path('Payment/'. $payment->payment)))
-            {
+        if ($file) {
+            if ($payment->payment && file_exists(public_path('Payment/' . $payment->payment))) {
                 File::delete(public_path('Payment/' . $payment->payment));
             }
-            $files = time(). "_" . $file->getClientOriginalName();
+            $files = time() . "_" . $file->getClientOriginalName();
             // folder penyimpanan
             $lokasi_file = 'Payment';
             $file->move($lokasi_file, $files);
@@ -69,8 +65,8 @@ class PaymentController extends Controller
 
         $payment->user_id = Auth::user()->id;
         $payment->save();
-        
-        Session::flash('success','Sukses Update Bukti Transfer');
+
+        Session::flash('success', 'Sukses Update Bukti Transfer');
 
         return redirect()->back();
     }

@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Reset Password Admin - PPDB Sekolah Darma Bangsa
+    Reset Password Admin - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')

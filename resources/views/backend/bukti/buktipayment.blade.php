@@ -1,7 +1,7 @@
 @extends('layouts.backend.buktiapp')
 
 @section('title')
-    Bukti Payment  - PPDB Sekolah Darma Bangsa
+    Bukti Payment  - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')

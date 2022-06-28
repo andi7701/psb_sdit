@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app')
 
 @section('title')
-   Profile - PPDB Sekolah Darma Bangsa
+   Profile - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')

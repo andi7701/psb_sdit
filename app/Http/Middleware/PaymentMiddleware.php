@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentMiddleware
 {
@@ -17,10 +17,8 @@ class PaymentMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->status != 'Payment' )
-        {
-            if(Auth::user()->status != 'RePayment')
-            {
+        if (Auth::user()->status != 'Payment') {
+            if (Auth::user()->status != 'RePayment') {
                 return abort(404);
             }
         }

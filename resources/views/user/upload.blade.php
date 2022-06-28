@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app')
 
 @section('title')
-    Upload File - PPDB Sekolah Darma Bangsa
+    Upload File - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('breadcrumb')

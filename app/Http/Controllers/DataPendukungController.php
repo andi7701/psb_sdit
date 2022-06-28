@@ -8,7 +8,7 @@ use App\Models\DataSiswa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class DataPendukungController extends Controller
 {
@@ -18,7 +18,7 @@ class DataPendukungController extends Controller
         $datapendukung = DataPendukung::select('*')->where('user_id', Auth::user()->id)->first();
         $dataortu = DataOrtu::first();
         $datasiswa = DataSiswa::first();
-        return view('user.datapendukung', compact('datapendukung','dataortu','datasiswa'));
+        return view('user.datapendukung', compact('datapendukung', 'dataortu', 'datasiswa'));
     }
 
     public function store(Request $request)
@@ -50,10 +50,9 @@ class DataPendukungController extends Controller
         $datapendukung->user_id = Auth::user()->id;
         $datapendukung->save();
 
-        Session::flash('success','Data Pendukung berhasil di simpan');
+        Session::flash('success', 'Data Pendukung berhasil di simpan');
 
         return redirect()->back();
-
     }
 
     public function update(Request $request, $id)
@@ -85,9 +84,8 @@ class DataPendukungController extends Controller
         $datapendukung->user_id = Auth::user()->id;
         $datapendukung->save();
 
-        Session::flash('success','Data Pendukung berhasil di update');
+        Session::flash('success', 'Data Pendukung berhasil di update');
 
         return redirect()->back();
-
     }
 }

@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between">
                 <div class="logo">
                     {{-- <a href="index.html"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo" srcset=""></a> --}}
-                    <h3>Sekolah Darma Bangsa</h3>
+                    <h3>SDIT INSAN QUR'ANI <small>Sumbawa</small></h3>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -37,7 +37,7 @@
                 </li>
 
                 @else
-                
+
                 <li class="sidebar-item {{ (request()->is('home')) ? 'active' : '' }}">
                     <a href="{{ route('home') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
@@ -78,14 +78,14 @@
                 </li>
 
                 @if (Auth::user()->status == 'RePayment')
-                    @if (Auth::user()->pengumumans->hasil == 'Selamat Anda Lulus')    
-                    <li class="sidebar-item {{ (request()->is('user/repayment')) ? 'active' : '' }}">
-                        <a href="{{ route('showrepayment') }}" class='sidebar-link'>
-                            <i class="bi bi-cash"></i>
-                            <span>Re-Payment</span>
-                        </a>
-                    </li>
-                    @endif
+                @if (Auth::user()->pengumumans->hasil == 'Selamat Anda Lulus')
+                <li class="sidebar-item {{ (request()->is('user/repayment')) ? 'active' : '' }}">
+                    <a href="{{ route('showrepayment') }}" class='sidebar-link'>
+                        <i class="bi bi-cash"></i>
+                        <span>Re-Payment</span>
+                    </a>
+                </li>
+                @endif
                 @endif
 
                 <li class="sidebar-item {{ (request()->is('user/kontakkami')) ? 'active' : '' }}">

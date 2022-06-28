@@ -1,14 +1,14 @@
 @extends('layouts.frontend.app')
 
 @section('title')
-   Re-Payment - PPDB Sekolah Darma Bangsa
+   Re-Payment - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')
    <div class="card">
        <div class="card-header">
            <h4 class="card-title">Re-Payment</h4>
-           <p>Berikut ini Rincian Biaya Daftar Ulang Siswa Baru Sekolah Darma Bangsa</p>
+           <p>Berikut ini Rincian Biaya Daftar Ulang Siswa Baru</p>
        </div>
 
        @if ($user->data_siswas->jenjang === "SMA")

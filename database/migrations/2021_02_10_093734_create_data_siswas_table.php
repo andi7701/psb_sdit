@@ -23,7 +23,7 @@ class CreateDataSiswasTable extends Migration
             $table->bigInteger('npsn')->nullable();
             $table->string('asal_sekolah')->nullable();
             $table->string('tempat_lahir');
-            $table->date('ttl'); 
+            $table->date('ttl');
             $table->string('agama');
             $table->string('berkhusus');
             $table->text('alamat');

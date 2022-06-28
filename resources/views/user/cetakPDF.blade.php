@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Biodata Calon Siswa Sekolah Darma Bangsa</title>
+    <title>Biodata Calon Siswa Sekolah SDIT Insan Qur'ani</title>
 </head>
 <body>
     <h1>{{ $user->name }}</h1>

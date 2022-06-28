@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Profile Admin - PPDB Sekolah Darma Bangsa
+    Profile Admin - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')

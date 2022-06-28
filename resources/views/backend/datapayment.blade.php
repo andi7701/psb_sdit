@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Data Siswa Payment  - PPDB Sekolah Darma Bangsa
+    Data Siswa Payment  - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('breadcrumb')

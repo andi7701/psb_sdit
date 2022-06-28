@@ -5,9 +5,7 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,9 +21,9 @@
                             <div class="user-img d-flex align-items-center">
                                 <div class="avatar avatar-md">
                                     @if (Auth::user()->foto != NULL)
-                                            <img src="{{ url('/fotoprofile/'. Auth::user()->foto) }}">
-                                    @else    
-                                        <img src="{{ asset('assets/images/faces/1.jpg') }}">
+                                    <img src="{{ url('/fotoprofile/'. Auth::user()->foto) }}">
+                                    @else
+                                    <img src="{{ asset('assets/images/faces/1.jpg') }}">
                                     @endif
                                 </div>
                             </div>
@@ -39,16 +37,14 @@
                                 Profile</a></li>
                         <li><a class="dropdown-item" href="{{ route('resetpasswordadmin') }}"><i class="icon-mid bi bi-gear me-2"></i>
                                 Reset Password</a></li>
-                            <hr class="dropdown-divider">
+                        <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"><i
-                                    class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>

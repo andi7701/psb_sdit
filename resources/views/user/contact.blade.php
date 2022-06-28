@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app')
 
 @section('title')
-    Kontak Kami - PPDB Sekolah Darma Bangsa
+    Kontak Kami - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')

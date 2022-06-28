@@ -6,7 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Session;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileAdminController extends Controller
 {
@@ -15,7 +16,7 @@ class ProfileAdminController extends Controller
     public function show()
     {
         $admin = User::select('*')->where('id', Auth::user()->id)->first();
-        return view('backend.myadmin',compact('admin'));
+        return view('backend.myadmin', compact('admin'));
     }
 
     public function update(Request $request, $id)
@@ -28,23 +29,22 @@ class ProfileAdminController extends Controller
         $admin = User::findOrFail($id);
 
         $foto = $request->file('foto');
-        if($foto)
-        {
-            if($admin->foto && file_exists(public_path('fotoprofile/'. $admin->foto))){
-                File::delete(public_path('fotoprofile/'. $admin->foto));
+        if ($foto) {
+            if ($admin->foto && file_exists(public_path('fotoprofile/' . $admin->foto))) {
+                File::delete(public_path('fotoprofile/' . $admin->foto));
             }
-            $fotos = time() ."_" . $foto->getClientOriginalName();
+            $fotos = time() . "_" . $foto->getClientOriginalName();
             // folderpenyimpanan
             $lokasi_foto = 'fotoprofile';
             $foto->move($lokasi_foto, $fotos);
             $admin->foto = $fotos;
-            }
+        }
 
-            $admin->name = $request->name;
-            $admin->save();
+        $admin->name = $request->name;
+        $admin->save();
 
-            Session::flash('success', 'Profile Berhasil Terupdate');
-            return redirect()->back();
+        Session::flash('success', 'Profile Berhasil Terupdate');
+        return redirect()->back();
     }
 
     public function resetpass()
@@ -62,21 +62,20 @@ class ProfileAdminController extends Controller
         ]);
         $hashedPassword = Auth::user()->password;
 
-        if(\Hash::check($request->oldpassword, $hashedPassword)){
-            if(!\Hash::check($request->password, $hashedPassword)) {
+        if (Hash::check($request->oldpassword, $hashedPassword)) {
+            if (!Hash::check($request->password, $hashedPassword)) {
                 $users = User::find(Auth::user()->id);
                 $users->password = bcrypt($request->password);
                 User::where('id', Auth::user()->id)->update(array('password' => $users->password));
 
-                Session::flash('success','Password Sukses Terupdate');
+                Session::flash('success', 'Password Sukses Terupdate');
+                return redirect()->back();
+            } else {
+                Session::flash('error', 'Password Baru Tidak Boleh Sama dengan Password Lama');
                 return redirect()->back();
             }
-            else{
-                Session::flash('error','Password Baru Tidak Boleh Sama dengan Password Lama');
-                return redirect()->back();
-            }
-        }else{
-            Session::flash('error','Password Lama Tidak Sama');
+        } else {
+            Session::flash('error', 'Password Lama Tidak Sama');
             return redirect()->back();
         }
     }

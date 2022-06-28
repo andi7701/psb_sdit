@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -25,15 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            if(Auth::user()->role == 'Admin'){
-                $users = User::select('id')->where('role','User')->get();
+        if (Auth::check()) {
+            if (Auth::user()->role == 'Admin') {
+                $users = User::select('id')->where('role', 'User')->get();
                 return view('backend.home', compact('users'));
-            }elseif(Auth::user()->role == 'User'){
-                $cek_user = User::select('id','name','foto')->where('id',auth::user()->id)->first();
+            } elseif (Auth::user()->role == 'User') {
+                $cek_user = User::select('id', 'name', 'foto')->where('id', auth::user()->id)->first();
                 return view('user.home', compact('cek_user'));
             }
-        }else{
+        } else {
             abort(404);
         }
         // return view('home');

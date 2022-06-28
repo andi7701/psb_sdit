@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Dashboard Admin - PPDB Sekolah Darma Bangsa
+    Dashboard Admin - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')
@@ -16,8 +16,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">TNTK</h6>
-                        <h6 class="font-extrabold mb-0">80.000</h6>
+                        <h6 class="text-muted font-semibold">Laki-Laki</h6>
+                        <h6 class="font-extrabold mb-0">100</h6>
                     </div>
                 </div>
             </div>
@@ -33,8 +33,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">SD</h6>
-                        <h6 class="font-extrabold mb-0">80.000</h6>
+                        <h6 class="text-muted font-semibold">Perempuan</h6>
+                        <h6 class="font-extrabold mb-0">100</h6>
                     </div>
                 </div>
             </div>
@@ -50,8 +50,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">SMP</h6>
-                        <h6 class="font-extrabold mb-0">80.000</h6>
+                        <h6 class="text-muted font-semibold">Guru</h6>
+                        <h6 class="font-extrabold mb-0">100</h6>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">SMA</h6>
-                        <h6 class="font-extrabold mb-0">80.000</h6>
+                        <h6 class="text-muted font-semibold">PNS</h6>
+                        <h6 class="font-extrabold mb-0">100</h6>
                     </div>
                 </div>
             </div>

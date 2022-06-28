@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
@@ -37,9 +37,8 @@ class ContactController extends Controller
         $contact->phone3 = $request->phone3;
         $contact->save();
 
-        Session::flash('success','Manage Kontak Sukses Terupdate');
+        Session::flash('success', 'Manage Kontak Sukses Terupdate');
 
         return redirect()->back();
     }
-    
 }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class FilePendukungController extends Controller
 {
@@ -32,35 +32,31 @@ class FilePendukungController extends Controller
         $filependukung = new FilePendukung;
 
         $kartukeluarga = $request->file('kartu_keluarga');
-        if($kartukeluarga)
-        {
-            $kk = time(). "_" . $kartukeluarga->getClientOriginalName();
+        if ($kartukeluarga) {
+            $kk = time() . "_" . $kartukeluarga->getClientOriginalName();
             // folder penyimpanan
             $lokasi_kk = 'image_KK';
             $kartukeluarga->move($lokasi_kk, $kk);
         }
 
         $aktekelahiran = $request->file('akte_kelahiran');
-        if($aktekelahiran)
-        {
-            $akte = time(). "_" . $aktekelahiran->getClientOriginalName();
+        if ($aktekelahiran) {
+            $akte = time() . "_" . $aktekelahiran->getClientOriginalName();
             // folder penyimpanan
             $lokasi_akte = 'image_Akte';
             $aktekelahiran->move($lokasi_akte, $akte);
         }
 
         $ktpayah = $request->file('ktp_ayah');
-        if($ktpayah)
-        {
-            $ktpayahs = time(). "_" . $ktpayah->getClientOriginalName();
+        if ($ktpayah) {
+            $ktpayahs = time() . "_" . $ktpayah->getClientOriginalName();
             // folder penyimpanan
             $lokasi_ktpayah = 'image_KTPAyah';
             $ktpayah->move($lokasi_ktpayah, $ktpayahs);
         }
 
         $ktpibu = $request->file('ktp_ibu');
-        if($ktpibu)
-        {
+        if ($ktpibu) {
             $ktpibus = time() . "_" . $ktpibu->getClientOriginalName();
             // folder penyimpanan
             $lokasi_ktpibu = 'image_KTPIbu';
@@ -68,9 +64,8 @@ class FilePendukungController extends Controller
         }
 
         $raport = $request->file('raport_terakhir');
-        if($raport)
-        {
-            $raportterakhirs = time(). "_" . $raport->getClientOriginalName();
+        if ($raport) {
+            $raportterakhirs = time() . "_" . $raport->getClientOriginalName();
             // folder penyimpanan
             $lokasi_raport = 'image_Raport';
             $raport->move($lokasi_raport, $raportterakhirs);
@@ -84,7 +79,7 @@ class FilePendukungController extends Controller
         $filependukung->user_id = Auth::user()->id;
         $filependukung->save();
 
-        Session::flash('success','Upload File Pendukung Sukses!');
+        Session::flash('success', 'Upload File Pendukung Sukses!');
 
         return redirect()->back();
     }
@@ -102,12 +97,11 @@ class FilePendukungController extends Controller
         $filependukung = FilePendukung::findOrFail($id);
 
         $kartukeluarga = $request->file('kartu_keluarga');
-        if($kartukeluarga)
-        {
-            if($filependukung->kartu_keluarga && file_exists(public_path('image_KK/'. $filependukung->kartu_keluarga))){
-                File::delete(public_path('image_KK/'.$filependukung->kartu_keluarga));
+        if ($kartukeluarga) {
+            if ($filependukung->kartu_keluarga && file_exists(public_path('image_KK/' . $filependukung->kartu_keluarga))) {
+                File::delete(public_path('image_KK/' . $filependukung->kartu_keluarga));
             }
-            $kartukeluargas = time(). "_" . $kartukeluarga->getClientOriginalName();
+            $kartukeluargas = time() . "_" . $kartukeluarga->getClientOriginalName();
             // folder penyimpanan
             $lokasi_kk = 'image_KK';
             $kartukeluarga->move($lokasi_kk, $kartukeluargas);
@@ -115,12 +109,11 @@ class FilePendukungController extends Controller
         }
 
         $aktekelahiran = $request->file('akte_kelahiran');
-        if($aktekelahiran)
-        {
-            if($filependukung->akte_kelahiran && file_exists(public_path('image_Akte/'.$filependukung->akte_kelahiran))){
-                File::delete(public_path('image_Akte/'. $filependukung->akte_kelahiran));
+        if ($aktekelahiran) {
+            if ($filependukung->akte_kelahiran && file_exists(public_path('image_Akte/' . $filependukung->akte_kelahiran))) {
+                File::delete(public_path('image_Akte/' . $filependukung->akte_kelahiran));
             }
-            $aktekelahirans = time(). "_" . $aktekelahiran->getClientOriginalName();
+            $aktekelahirans = time() . "_" . $aktekelahiran->getClientOriginalName();
             // folder penyimpanan
             $lokasi_akte = 'image_Akte';
             $aktekelahiran->move($lokasi_akte, $aktekelahirans);
@@ -128,12 +121,11 @@ class FilePendukungController extends Controller
         }
 
         $ktpayah = $request->file('ktp_ayah');
-        if($ktpayah)
-        {
-            if($filependukung->ktp_ayah && file_exists(public_path('image_KTPAyah/'. $filependukung->ktp_ayah))){
-                File::delete(public_path('image_KTPAyah/'. $filependukung->ktp_ayah));
+        if ($ktpayah) {
+            if ($filependukung->ktp_ayah && file_exists(public_path('image_KTPAyah/' . $filependukung->ktp_ayah))) {
+                File::delete(public_path('image_KTPAyah/' . $filependukung->ktp_ayah));
             }
-            $ktpayahs = time(). "_" . $ktpayah->getClientOriginalName();
+            $ktpayahs = time() . "_" . $ktpayah->getClientOriginalName();
             // folder penyimpanan
             $lokasi_ktpayah = 'image_KTPAyah';
             $ktpayah->move($lokasi_ktpayah, $ktpayahs);
@@ -141,12 +133,11 @@ class FilePendukungController extends Controller
         }
 
         $ktpibu = $request->file('ktp_ibu');
-        if($ktpibu)
-        {
-            if($filependukung->ktp_ibu && file_exists(public_path('image_KTPIbu/' . $filependukung->ktp_ibu))){
-                File::delete(public_path('image_KTPIbu/'.$filependukung->ktp_ibu));
+        if ($ktpibu) {
+            if ($filependukung->ktp_ibu && file_exists(public_path('image_KTPIbu/' . $filependukung->ktp_ibu))) {
+                File::delete(public_path('image_KTPIbu/' . $filependukung->ktp_ibu));
             }
-            $ktpibus = time() . "_". $ktpibu->getClientOriginalName();
+            $ktpibus = time() . "_" . $ktpibu->getClientOriginalName();
             // folder penyimpanan
             $lokasi_ktpibu = 'image_KTPIbu';
             $ktpibu->move($lokasi_ktpibu, $ktpibus);
@@ -154,12 +145,11 @@ class FilePendukungController extends Controller
         }
 
         $raport = $request->file('raport_terakhir');
-        if($raport)
-        {
-            if($filependukung->raport_terakhir && file_exists(public_path('image_Raport/' . $filependukung->raport_terakhir))){
-                File::delete(public_path('image_Raport/'. $filependukung->raport_terakhir));
+        if ($raport) {
+            if ($filependukung->raport_terakhir && file_exists(public_path('image_Raport/' . $filependukung->raport_terakhir))) {
+                File::delete(public_path('image_Raport/' . $filependukung->raport_terakhir));
             }
-            $raports = time(). "_" . $raport->getClientOriginalName();
+            $raports = time() . "_" . $raport->getClientOriginalName();
             // folder penyimpanan
             $lokasi_raport = 'image_Raport';
             $raport->move($lokasi_raport, $raports);
@@ -168,7 +158,7 @@ class FilePendukungController extends Controller
 
         $filependukung->save();
 
-        Session::flash('success','Update File Sukses!');
+        Session::flash('success', 'Update File Sukses!');
 
         return redirect()->back();
     }

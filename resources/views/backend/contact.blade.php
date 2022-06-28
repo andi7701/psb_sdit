@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    Contact Admin - PPDB Sekolah Darma Bangsa
+    Contact Admin - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('content')

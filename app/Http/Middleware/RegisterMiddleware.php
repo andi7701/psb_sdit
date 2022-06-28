@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterMiddleware
 {
@@ -17,8 +17,7 @@ class RegisterMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->status != 'Register')
-        {
+        if (Auth::user()->status != 'Register') {
             return abort(404);
         }
         return $next($request);

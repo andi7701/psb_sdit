@@ -6,7 +6,7 @@ use App\Models\DataOrtu;
 use App\Models\DataSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class DataOrtuController extends Controller
 {
@@ -15,7 +15,7 @@ class DataOrtuController extends Controller
     {
         $dataortu = DataOrtu::select('*')->where('user_id', Auth::user()->id)->first();
         $datasiswa = DataSiswa::first();
-        return view('user.dataortu', compact('dataortu','datasiswa'));
+        return view('user.dataortu', compact('dataortu', 'datasiswa'));
     }
 
     public function store(Request $request)
@@ -58,8 +58,8 @@ class DataOrtuController extends Controller
         $dataortu->no_hp_ayah = $request->no_hp_ayah;
         $dataortu->nama_ibu = $request->nama_ibu;
         $dataortu->tahun_lahir_ibu = $request->tahun_lahir_ibu;
-        $dataortu->alamat_ibu =$request->alamat_ibu;
-        $dataortu->pendidikan_ibu =$request->pendidikan_ibu;
+        $dataortu->alamat_ibu = $request->alamat_ibu;
+        $dataortu->pendidikan_ibu = $request->pendidikan_ibu;
         $dataortu->pekerjaan_ibu = $request->pekerjaan_ibu;
         $dataortu->penghasilan_ibu = $request->penghasilan_ibu;
         $dataortu->gelar_ibu = $request->gelar_ibu;
@@ -74,10 +74,9 @@ class DataOrtuController extends Controller
         $dataortu->user_id = Auth::user()->id;
         $dataortu->save();
 
-        Session::flash('success','Data Orang Tua Tersimpan');
+        Session::flash('success', 'Data Orang Tua Tersimpan');
 
         return redirect()->route('datapendukung');
-
     }
 
     public function update(Request $request, $id)
@@ -120,8 +119,8 @@ class DataOrtuController extends Controller
         $dataortu->no_hp_ayah = $request->no_hp_ayah;
         $dataortu->nama_ibu = $request->nama_ibu;
         $dataortu->tahun_lahir_ibu = $request->tahun_lahir_ibu;
-        $dataortu->alamat_ibu =$request->alamat_ibu;
-        $dataortu->pendidikan_ibu =$request->pendidikan_ibu;
+        $dataortu->alamat_ibu = $request->alamat_ibu;
+        $dataortu->pendidikan_ibu = $request->pendidikan_ibu;
         $dataortu->pekerjaan_ibu = $request->pekerjaan_ibu;
         $dataortu->penghasilan_ibu = $request->penghasilan_ibu;
         $dataortu->gelar_ibu = $request->gelar_ibu;
@@ -136,9 +135,8 @@ class DataOrtuController extends Controller
         $dataortu->user_id = Auth::user()->id;
         $dataortu->save();
 
-        Session::flash('success','Data Orang Tua Terupdate');
+        Session::flash('success', 'Data Orang Tua Terupdate');
 
         return redirect()->route('datapendukung');
-
     }
 }

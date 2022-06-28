@@ -7,87 +7,87 @@ use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response as FacadesResponse;
-use Session;
+use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 
 class DataPendaftarController extends Controller
 {
-    //
-    public function indexdataregister()
-    {
-        $dataregister = User::select('*')
-                                        ->where('status','Register')
-                                        ->where('tahun_ajarans', Carbon::now()->year)
-                                        ->orderBy('created_at', 'DESC')
-                                        ->get();
+  //
+  public function indexdataregister()
+  {
+    $dataregister = User::select('*')
+      ->where('status', 'Register')
+      ->where('tahun_ajarans', Carbon::now()->year)
+      ->orderBy('created_at', 'DESC')
+      ->get();
 
-        // Data Tahun
-        $tahun = User::select('tahun_ajarans')
-          ->where('role','User')
-          ->groupBy('tahun_ajarans')
-          ->orderby('tahun_ajarans','DESC')->get();
+    // Data Tahun
+    $tahun = User::select('tahun_ajarans')
+      ->where('role', 'User')
+      ->groupBy('tahun_ajarans')
+      ->orderby('tahun_ajarans', 'DESC')->get();
 
-        return view('backend.dataregister',compact('dataregister','tahun'));
-    }
+    return view('backend.dataregister', compact('dataregister', 'tahun'));
+  }
 
-    public function showregister($id)
-    {
-        $user = User::findOrFail($id);
+  public function showregister($id)
+  {
+    $user = User::findOrFail($id);
 
-        return view('backend.bukti.buktipayment', compact('user'));
-    }
+    return view('backend.bukti.buktipayment', compact('user'));
+  }
 
-    public function updateregister($id)
-    {
-        $user = User::findOrFail($id);
+  public function updateregister($id)
+  {
+    $user = User::findOrFail($id);
 
-        $user->status = 'Payment';
-        $user->save();
+    $user->status = 'Payment';
+    $user->save();
 
-        Session::flash('success','Calon Siswa Berhasil Diterima');
+    Session::flash('success', 'Calon Siswa Berhasil Diterima');
 
-        return redirect()->back();
-    }
+    return redirect()->back();
+  }
 
-    public function indexdatasuccess()
-    {
-        $datasuccess = User::select('name','email','tahun_ajarans','status')
-                                ->where('status','success')
-                                ->orderBy('created_at', 'DESC')
-                                ->get();
+  public function indexdatasuccess()
+  {
+    $datasuccess = User::select('name', 'email', 'tahun_ajarans', 'status')
+      ->where('status', 'success')
+      ->orderBy('created_at', 'DESC')
+      ->get();
 
-        return view('backend.datasuccess',compact('datasuccess'));
-    }
+    return view('backend.datasuccess', compact('datasuccess'));
+  }
 
-    // Filter Tahun Ajaran
-    public function tahun_ajaran(Request $request)
-    {
-      if ($request->tahun_ajarans != 0) {
-        $dataregister = User::where('status','Register')
+  // Filter Tahun Ajaran
+  public function tahun_ajaran(Request $request)
+  {
+    if ($request->tahun_ajarans != 0) {
+      $dataregister = User::where('status', 'Register')
         ->where('tahun_ajarans', $request->tahun_ajarans)
         ->orderBy('created_at', 'DESC')
         ->get();
-      } else {
-        $dataregister = User::where('status','Register')
+    } else {
+      $dataregister = User::where('status', 'Register')
         ->orderBy('created_at', 'DESC')
         ->get();
-      }
+    }
 
-      $return = "";
-      foreach($dataregister as $item) {
-        $return .="<tr>
-          <td>".$item->name."</td>
-          <td>".$item->email."</td>
-          <td>".$item->tahun_ajarans."</td>";
-          $return .="
+    $return = "";
+    foreach ($dataregister as $item) {
+      $return .= "<tr>
+          <td>" . $item->name . "</td>
+          <td>" . $item->email . "</td>
+          <td>" . $item->tahun_ajarans . "</td>";
+      $return .= "
             <td> <span class='badge bg-success'>$item->status</span></td>
           ";
-          if ($item->payments != NULL){
-              $return .="
+      if ($item->payments != NULL) {
+        $return .= "
               <td>
                 <form
                 method='POST'
-                action='{{ route('updateregister', $dr->id) }}'
+                action='{{ route('updateregister', $item->id) }}'
                 class='d-inline'
                 onsubmit='return confirm('Yakin Untuk Menerima Pembayaran ini?')'>
                 @csrf
@@ -95,17 +95,16 @@ class DataPendaftarController extends Controller
                 <input type='submit' name='status' value='Terima' class='btn btn-sm btn-primary rounded-pill'>
                 </form>
               </td>";
-          } else {
-            $return .="
+      } else {
+        $return .= "
             <td>
               <a href='#' target='_blank' class='disabled btn btn-sm btn-info rounded-pill'>Lihat Bukti</a>
               <a href='#' class='disabled btn btn-sm btn-primary rounded-pill'>Terima</a>
             </td>";
-          }
-        $return .= "</td>
-        </tr>";
       }
-      return $return;
+      $return .= "</td>
+        </tr>";
     }
-
+    return $return;
+  }
 }

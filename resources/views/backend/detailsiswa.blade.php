@@ -1,7 +1,7 @@
 @extends('layouts.backend.app')
 
 @section('title')
-    {{ $user->name }}  - PPDB Sekolah Darma Bangsa
+    {{ $user->name }}  - SDIT INSAN QUR'ANI
 @endsection
 
 {{-- @section('breadcrumb')

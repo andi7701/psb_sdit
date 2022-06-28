@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app')
 
 @section('title')
-   Data Pendukung - PPDB Sekolah Darma Bangsa
+   Data Pendukung - SDIT INSAN QUR'ANI SUMBAWA
 @endsection
 
 @section('breadcrumb')
