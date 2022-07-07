@@ -23,7 +23,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.20"
+        "phpunit/phpunit": "^8.0.0"
+        
     },
     "config": {
         "optimize-autoloader": true,
