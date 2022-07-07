@@ -11,6 +11,7 @@
 /public/image_Raport
 /public/img
 /public/Payment
+.env
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
