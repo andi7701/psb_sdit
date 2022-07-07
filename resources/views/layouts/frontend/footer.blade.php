@@ -5,7 +5,7 @@
         </div>
         <div class="float-end">
             <p>Created with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                from <a href="http://darmabangsa.sch.id">Sumbawa</a></p>
+                from <a href="#">Sumbawa</a></p>
         </div>
     </div>
 </footer>
