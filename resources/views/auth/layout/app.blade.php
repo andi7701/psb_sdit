@@ -1,5 +1,4 @@
 @include('auth.layout.head')
-
 <!DOCTYPE html>
 <html lang="en">
 

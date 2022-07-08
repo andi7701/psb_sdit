@@ -12,7 +12,9 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 </head>
 
 <body>
@@ -142,6 +144,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- main js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
 

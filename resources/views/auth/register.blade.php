@@ -1,7 +1,7 @@
 @extends('auth.layout.app')
 
 @section('title')
-    Register - PPDB Sekolah Darma Bangsa
+    Register - PPDB SDIT Insan Qur'ani
 @endsection
 
 @section('content')    
