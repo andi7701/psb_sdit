@@ -24,7 +24,7 @@
     <!-- header -->
     <header class="l-header scroll-header" id="header">
         <nav class="nav bd-container">
-            <a href="/" class="nav__logo">Sdit Insan Qur'ani Sumbawa</a>
+            <a href="/" class="nav__logo">Sdit Insan Qur'ani Sumbawa yuhuy</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
